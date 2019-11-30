@@ -3,19 +3,17 @@ const member = require('../controllers/memberController');
 const passport = require('../config/passport');
 
 module.exports = router
-    .get('/', function (req, res, next) {
-        res.render('index', { title: 'Express' })
-    })
-    .get('/success', function (req, res, next) {
-        // console.log(req.user);
-        res.render('success', { data: req.user })
-    })
+    .get('/login', member.login)
+    .get('/success', member.success)
+    //.get('/auth/facebook', member.authentication)
     .get('/auth/facebook', passport.authenticate('facebook'))
-    .get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect: '/success',
-            failureRedirect: '/'
-        }));
+    .get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/member/success',
+        failureRedirect: '/member/'
+    }))
+    .get('/displayName', member.displayName);
+
+
 //  .post(`/signIn`,member.addUser);
 
 

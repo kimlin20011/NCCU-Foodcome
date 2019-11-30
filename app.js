@@ -4,7 +4,7 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const koaLogger = require('koa-logger');
 const static = require('koa-static');
-const passport = require('passport');
+const passport = require('koa-passport');
 const session = require('koa-session')
 
 const config = require('./config/config');
@@ -15,6 +15,9 @@ const app = new Koa();
 //const staticPath = './views';
 //const staticPath = './foodcomeNCCU';
 const staticPath = './foodcomeNCCU';
+
+
+const session_config = { secret: 'keyboard cat', resave: true, saveUninitialized: true };
 
 // http logger
 app.use(koaLogger());
@@ -33,7 +36,9 @@ app.use(static(
     path.join(__dirname, staticPath)
 ))
 
-app.use(require('koa-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.keys = ['foodcomeNCCU secret'];
+app.use(session(session_config, app));
+//app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
