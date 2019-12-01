@@ -29,17 +29,13 @@ module.exports = {
         //let data = ctx.request.user
         try {
             console.log(`success`)
-            console.log(ctx.session)
-            console.log(`user:${ctx.session.passport.user.displayName}`)
-            fs.writeFileSync('./displayName.txt', ctx.session.passport.user.displayName);
+            console.log(`user:`)
+            console.log(ctx.req.user)
+            fs.writeFileSync('./displayName.txt', ctx.req.user.displayName);
             let res = {};
-            res.displayName = ctx.session.passport.user,
-                //   let deploy_result =  await deploy();
-                //   res.result = deploy_result;
-
-                ctx.body = res;
-            ctx.redirect('/landingPageLogined.html');
-
+            res.displayName = ctx.req.user.displayName,
+            ctx.body = res;
+            ctx.redirect(`/landingPageLogined.html?displayName=${res.displayName}`);
         } catch (error) {
             ctx.body = error;
         }
