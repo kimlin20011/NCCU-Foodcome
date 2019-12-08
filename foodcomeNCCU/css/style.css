@@ -23,6 +23,7 @@ a, button {
     cursor: pointer;
 }
 
+
 a:hover,
 a:active,
 a:focus {
@@ -52,6 +53,24 @@ h1,h2,h3,h4,h5,h6,p{
     margin: 0
 }
 
+.frame {  
+    height: 45px; /*can be anything*/
+    width: 45px; /*can be anything*/
+    position: relative;
+}
+/* img {  
+    float: left ;
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+} */
 /*Spacing Value*/
 .tv-offspace-50 {
     margin-top: 50px;
@@ -178,6 +197,30 @@ header {
     border:none;
     margin: 0;
 }
+
+input.search-query {
+    padding-left:27px;
+}
+
+form.form-search {
+    position: relative;
+}
+
+form.form-search:before {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+
+
 .tv-menu {
     font-size: 11px;
     font-weight: 600;

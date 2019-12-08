@@ -1,51 +1,141 @@
-<!--Template Name:FoodEpik
-File Name:home.html
-Author Name: ThemeVault
-Author URI: http://www.themevault.net/
-License URI: http://www.themevault.net/license/-->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/food1.png" />
+    <link rel="icon" href="images/nccu2.png" />
     <title>FoodCome NCCU</title>
-    <!--<link href="css/scrolling-nav.css" rel="stylesheet" media="all">-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/color/tamarillo.css" title="tamarillo">
-    <link rel="stylesheet" type="text/css" href="css/color/pomegranate.css" title="pomegranate">
-    <link rel="stylesheet" type="text/css" href="css/color/hot-cinnamon.css" title="hot-cinnamon">
-    <link rel="stylesheet" type="text/css" href="css/color/egg-blue.css" title="egg-blue">
-    <link rel="stylesheet" type="text/css" href="css/color/west-side.css" title="west-side">
-    <link rel="stylesheet" type="text/css" href="css/color/dark-green.css" title="dark-green">
-
-    <link rel="icon" type="image/png" href="images/icons/food1.ico" />
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <!-- <link rel="icon" type="image/png" href="images/icons/food1.ico" /> -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
+    <!-- <script src="js/bootstrap.min.js" type="text/javascript"></script> -->
 
-    <!--Script Style-->
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/custom.js" type="text/javascript"></script>
-    <script src="js/waypoints.min.js" type="text/javascript"></script>
-    <script src="js/wow.min.js" type="text/javascript"></script>
-    <script src="js/magnific-popup.js" type="text/javascript"></script>
-    <script src="js/counterup.min.js" type="text/javascript"></script>
-    <script src="js/waypoints.min.js" type="text/javascript"></script>
-    <script src="js/wow.min.js" type="text/javascript"></script>
-    <script src="js/modernizr.custom.js" type="text/javascript"></script>
-    <!--Script Style Ends Here...-->
+    <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+
+
+    <script>
+        // 初始化 Firebase
+        var config = {
+            apiKey: "AIzaSyCv65zJvID5FYHkNveKhoWv5bO8V5_jf5U",
+            authDomain: "foodcomenccu-8a5b5.firebaseapp.com",
+            databaseURL: "https://foodcomenccu-8a5b5.firebaseio.com",
+            projectId: "foodcomenccu-8a5b5",
+            storageBucket: "foodcomenccu-8a5b5.appspot.com",
+            messagingSenderId: "77228063107",
+            appId: "1:77228063107:web:12a0f04637dd293ad15eb6"
+
+        };
+        var a = firebase.initializeApp(config);
+
+        console.log(a)
+    </script>
+
+    <script>
+        var providerF = new firebase.auth.FacebookAuthProvider();
+        console.log('provider', providerF)
+        // var btnFacebookRedirect = document.getElementById('facebookSingUpRedirect');
+
+        var login_error_func = function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert("登入失敗:" + errorMessage);
+        }
+        var login_success_func = function (error) {
+            alert("登入成功");
+            firebase.auth().onAuthStateChanged(user => {
+                var user = firebase.auth().currentUser;
+
+
+                if (user) {
+
+                    var s = user.email;
+                    name = s.substring(0, s.indexOf('@'))
+                    // alert(s.substring(0, s.indexOf('@')));
+
+                    // alert(s.substring(s.indexOf('@') + 1, s.length));
+                    href1 = "landingPage.html?" + name
+
+                    // alert(href1)
+                    location.href = href1
+                }
+            });
+
+
+
+        }
+
+        $(document).ready(function () {
+            var url = location.href;
+
+            //取得問號之後的值
+            var temp = url.split("?");
+            if (temp != null) {
+                var email = temp[1];
+
+                // alert('email' + email+typeof(email))
+                $('#login_email').val(email)
+            }
+
+
+
+
+
+
+            /* 建立使用者 */
+            $("#facebookSingUpPopup").click(function () {
+                firebase.auth().signInWithPopup(providerF).then(function (result) {
+                    var token = result.credential.accessToken;
+                    var user = result.user;
+                    console.log(user.displayName)
+                    name = user.displayName
+                    href1 = "landingPage.html?" + name
+
+                    console.log(href1)
+                    location.href = href1
+
+                })
+
+            })
+            /* 登入使用者 */
+            $("#login_user").click(function () {
+                var email = $('#login_email').val();
+                var password = $('#login_password').val();
+                firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+                    .then(function () {
+                        // Existing and future Auth states are now persisted in the current
+                        // session only. Closing the window would clear any existing state even
+                        // if a user forgets to sign out.
+                        // ...
+                        // New sign-in will be persisted with session persistence.
+                        return firebase.auth().signInWithEmailAndPassword(email, password).then(
+                                login_success_func)
+                            .catch(login_error_func);
+                    })
+                    .catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                    });
+                // firebase.auth().signInWithEmailAndPassword(email, password).then(login_success_func)
+                //     .catch(login_error_func);
+            });
+
+
+        });
+    </script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -57,7 +147,30 @@ License URI: http://www.themevault.net/license/-->
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="navbar-header text-center">
-                            <a href="./landingPage.html" class="navbar-brand tv-cafe-logo">Foodcome NCCU</a>
+                            <div class="frame">
+                                <a href="./landingPage.html"><img src="images/nccu2.png" width="50%" style="float: left ;
+                                        max-height: 100%;  
+                                        max-width: 100%; 
+                                        width: auto;
+                                        height: auto;
+                                        position: absolute;  
+                                        top: 10px;  
+                                        bottom: 0;  
+                                        left: 0;  
+                                        right: 0;  
+                                        margin: auto;"></a>
+                                <a href="./landingPage.html" class="navbar-brand tv-cafe-logo" style="
+                                        
+                                        padding-left: 20px;
+                                        padding-right: 59px;
+                                        height: 55px;
+                                        width: 419px;
+                                        padding-bottom: 19px;
+                                        padding-top: 18px;
+                                    
+                                    ">Foodcome NCCU</a>
+
+                            </div>
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tv-navbar">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -67,12 +180,33 @@ License URI: http://www.themevault.net/license/-->
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-12">
                         <div class="collapse navbar-collapse" id="tv-navbar">
-                            <ul class="nav navbar-nav text-center main-menu">
-                                <li class=""><a class="tv-menu" href="" data-toggle="dropdown">搜尋</a></li>
-                                <li class=""><a href="#newsletter" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
-                                <li class='active'><a href="./login.html" class="tv-menu" target="_self">登入</a></li>
-                                <li class=''><a href="./signIn.html" class="tv-menu" target="_self">註冊</a></li>
-                                <li class=''><a href="#discount" class="tv-menu" target="_self">購物車</a></li>
+
+                            <ul id='myid' class="nav navbar-nav text-center main-menu">
+
+                                <li class=""><a href="" class="tv-menu">
+                                        <form class="form-search form-inline">
+                                            <input type="text" class="search-query" placeholder="Search..." style="
+                                                width: 127px;
+                                            ">
+                                        </form>
+
+                                    </a>
+                                </li>
+
+
+
+                                <li class=""><a id='book' href="#" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
+
+                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
+                                </li>
+
+                                <li class='active'><a id='sign' href="./login.html" class="tv-menu"
+                                        target="_self">登入</a></li>
+
+                                <li class=''><a id='out' href="" class="tv-menu" target="_self"
+                                        style="display:none">登出</a></li>
+
+                                <li class=''><a href="" class="tv-menu" target="_self">購物車</a></li>
 
                             </ul>
                         </div>
@@ -85,184 +219,58 @@ License URI: http://www.themevault.net/license/-->
         <!-- <div class="tv-banner-image" style="background: rgba(0, 0, 0, 0) url('images/bgbanner.png') no-repeat scroll center top / cover;"> -->
 
         <div class="container-login100"
-            style="background: rgba(212, 162, 24, 0) url('images/bgbanner.png') no-repeat scroll center top / cover;">
-            <div class="wrap-login100">
-                <!-- <div class="login100-pic js-tilt" data-tilt> -->
-                <div class="login100-pic js-tilt" data-tilt>
-                    <img src="images/img-01.png" alt="IMG">
+            style="background: rgba(0, 0, 0, 0) url('images/bgbanner.png') no-repeat scroll center top / cover;">
+            <div class="wrap-login100" style="padding-bottom: 100px;">
+                <div class=" login100-pic js-tilt" data-tilt>
+                    <img src="images/nccu2.png" alt="IMG">
                 </div>
-
-                <form class="login100-form validate-form">
-                    <span class="login100-form-title">
-                        LOGIN
-                    </span>
-
-                    <div class="login100-form validate-form">
-                        <a href="member/auth/facebook">
-                            <img id="facebookLogin" src="images/facebook-sign-in-button.png" alt="IMG"
-                                style="width: 100%; height: auto;">
-                        </a>
-                    </div>
-                    <div class="text-center p-t-12">
-                        <h5>OR</h5>
-                    </div>
-                    <br>˝
-
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                <div>
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-title">
+                            登入
                         </span>
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                    </div>
 
+                        <button id="facebookSingUpPopup" type="button"><img src="./images/signupwithfacebook.jpeg "
+                                style='width: 280px;border-bottom-width: 100px;margin-bottom: 50px;'></button>
+
+
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <!-- <input type="text" id="create_email" placeholder="Email" /> -->
+
+                            <input id='login_email' class="input100" type="text" name="email" placeholder="Email">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <!-- <input type="text" id="create_password" placeholder="密碼" /> -->
+
+                            <input id='login_password' class="input100" type="password" name='password'
+                                placeholder="密碼">
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+                    </form>
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
+                        <!-- <button id="create_user">登入</button> -->
+
+                        <button id='login_user' class="login100-form-btn">
+                            Sign in
                         </button>
                     </div>
 
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
-                    </div>
+                </div>
 
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Don't have an account?
-                        </span>
-                        <a class="txt2" href="./signIn.html">
-                            Sign up here
-                        </a>
-                    </div>
-                </form>
+
+
             </div>
         </div>
     </div>
     <!--End Header Section-->
 
-
-    <a id="back-to-top" style="display: none;"><i class="tv-bounce fa fa-angle-double-up"></i></a>
-
-    <!--Magnefic Popup Script-->
-    <script>
-        $(document).ready(function () {
-            var $imagePopup = $('[data-image-popup]');
-            /*Image*/
-            $imagePopup.magnificPopup({
-                type: 'image',
-                gallery: {
-                    enabled: true
-                }
-            });
-        });
-    </script>
-    <!--Magnefic Popup Script Ends Here..-->
-
-    <!--Timer Script-->
-    <script>
-        function getTimeRemaining(endtime) {
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor((t / 1000) % 60);
-            var minutes = Math.floor((t / 1000 / 60) % 60);
-            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-            var days = Math.floor(t / (1000 * 60 * 60 * 24) % 30.5);
-            return {
-                'total': t,
-                'days': days,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds,
-            };
-        }
-
-        function initializeClock(id, endtime) {
-            var clock = document.getElementById(id);
-            var daysSpan = clock.querySelector('.days');
-            var hoursSpan = clock.querySelector('.hours');
-            var minutesSpan = clock.querySelector('.minutes');
-            var secondsSpan = clock.querySelector('.seconds');
-
-            function updateClock() {
-                var t = getTimeRemaining(endtime);
-                daysSpan.innerHTML = (('0' + t.days).slice(-2));
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                if (t.total <= 0) {
-                    clearInterval(timeinterval);
-                }
-            }
-
-            updateClock();
-            var timeinterval = setInterval(updateClock, 1000);
-        }
-
-        var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-        initializeClock('tv-counter', deadline);
-    </script>
-    <!--Timer Script Ends Here...-->
-
-    <!--Counter Script-->
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $('.counter').counterUp({
-                delay: 20,
-                time: 1000
-            });
-        });
-    </script>
-    <!--Counter Script Ends Here...-->
-
-    <!--Scrolling Script-->
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
-
-                if (this.hash !== "") {
-
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 900, function () {
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-            });
-        });
-    </script>
-    <!--End Scrolling Script-->
-    <script src="js/styleswitcher.js"></script>
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
+
     <script src="js/main.js"></script>
 
 
