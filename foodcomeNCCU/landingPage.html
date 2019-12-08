@@ -11,7 +11,7 @@ License URI: http://www.themevault.net/license/-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/food1.png" />
+    <link rel="icon" href="images/nccu2.png" />
     <title>FoodCome NCCU</title>
     <!--<link href="css/scrolling-nav.css" rel="stylesheet" media="all">-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,9 +33,68 @@ License URI: http://www.themevault.net/license/-->
     <script src="js/magnific-popup.js" type="text/javascript"></script>
     <script src="js/counterup.min.js" type="text/javascript"></script>
     <script src="js/waypoints.min.js" type="text/javascript"></script>
-    <script src="js/wow.min.js" type="text/javascript"></script>
     <script src="js/modernizr.custom.js" type="text/javascript"></script>
     <!--Script Style Ends Here...-->
+
+    <script>
+        $(document).ready(function () {
+            
+
+        
+            var url = location.href;
+
+            //取得問號之後的值
+            var temp = url.split("?");
+            // alert('temp' + temp)
+
+
+
+            var user=temp[1].substring(1, temp[1].indexOf('user'))
+            // alert('user:' +user)
+            // console.log('user'+user)
+            var name1=temp[1].substring(0, user.indexOf('user'))
+            // alert('name1'+name1)
+
+            // var vars = name1.split("&");
+            // //一一顯示出來
+            // for (var i = 0; i < vars.length; i++) {
+            //     name = decodeURIComponent(vars[i])
+
+            // };
+            // console.log(name)
+
+            if (name != null) {
+               
+                $("#sign").attr("href", "")
+                $('#sign').hide()
+                $('#name').show()
+                $('#name').text(name)
+                $("#out").show()
+                $("#out").click(function () {
+                    console.log('out')
+                    $('#sign').text('登入')
+                    $("#sign").attr("href", "./login.html")
+                    $('#out').hide()
+
+                    $('#name').hide()
+                    $('#sign').show()
+                    firebase.auth().signOut().then(function () {
+                        alert('您被逐出紫禁城了');
+                        var user = firebase.auth().currentUser;
+                        console.log(user)
+
+
+                    })
+
+                })
+
+            }
+
+
+
+
+        });
+    </script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -47,7 +106,30 @@ License URI: http://www.themevault.net/license/-->
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="navbar-header text-center">
-                            <a href="landingPage.html" class="navbar-brand tv-cafe-logo">Foodcome NCCU</a>
+                            <div class="frame">
+                                <a href="./landingPage.html"><img src="images/nccu2.png" width="50%" style="float: left ;
+                                    max-height: 100%;  
+                                    max-width: 100%; 
+                                    width: auto;
+                                    height: auto;
+                                    position: absolute;  
+                                    top: 10px;  
+                                    bottom: 0;  
+                                    left: 0;  
+                                    right: 0;  
+                                    margin: auto;"></a>
+                                <a href="./landingPage.html" class="navbar-brand tv-cafe-logo" style="
+                                    
+                                    padding-left: 20px;
+                                    padding-right: 59px;
+                                    height: 55px;
+                                    width: 419px;
+                                    padding-bottom: 19px;
+                                    padding-top: 18px;
+                                
+                                ">Foodcome NCCU</a>
+
+                            </div>
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tv-navbar">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -57,28 +139,37 @@ License URI: http://www.themevault.net/license/-->
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-12">
                         <div class="collapse navbar-collapse" id="tv-navbar">
-                            <ul class="nav navbar-nav text-center main-menu">
-                                <li class="active"><a class="tv-menu" href="#myPage" data-toggle="dropdown">搜尋</a></li>
-                                <li class=""><a href="#Popular" class="tv-menu" data-toggle="dropdown">最受歡迎Stores</a>
-                                </li>
-                                <li class=""><a href="#discount" class="tv-menu" data-toggle="dropdown">折扣消息</a></li>
-                                <li class=""><a href="#newsletter" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
-                                
-                                <li id= "loginButton" class="tv-menu">
-                                    <div class=""></div><a class="btn btn-mod btn-border-white btn-round"
-                                        href="./login.html">登入</a>
+
+                            <ul id='myid' class="nav navbar-nav text-center main-menu">
+
+                                <li class=""><a href="" class="tv-menu">
+                                        <form class="form-search form-inline">
+                                            <input type="text" class="search-query" placeholder="Search..." style="
+                                            width: 127px;
+                                        ">
+                                        </form>
+
+                                    </a>
                                 </li>
 
-                                <li class="tv-menu">
-                                    <div class=""></div><a class="btn btn-mod btn-border-white btn-round"
-                                        href="./signIn.html">註冊</a>
+
+
+                                <li class=""><a id='book' href="#" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
+
+                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
                                 </li>
+
+                                <li class=''><a id='sign' href="./login.html" class="tv-menu" target="_self">登入</a></li>
+                                <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a></li>
+
+                                <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a></li>
+
+                                <li class=''><a href="" class="tv-menu" target="_self">購物車</a></li>
 
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </nav>
     </header>
@@ -88,7 +179,7 @@ License URI: http://www.themevault.net/license/-->
     <div id="banner">
         <!-- <div class="tv-banner-image"
             style="background: rgba(0, 0, 0, 0) url('images/bgbanner.png') no-repeat scroll center top / cover;"> -->
-            <div class="tv-banner-image"
+        <div class="tv-banner-image"
             style="background: rgba(0, 0, 0, 0) url('images/WechatIMG23.png') no-repeat scroll center center / cover;">
             <div class="tv-welcome-banner">
                 <div class="tv-welcome-title">

@@ -236,7 +236,7 @@ iframe {
   color: #666666;
 
   display: block;
-  width: 100%;
+  /* width: 100%; */
   background: #e6e6e6;
   height: 50px;
   border-radius: 25px;
