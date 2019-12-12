@@ -67,6 +67,7 @@ License URI: http://www.themevault.net/license/-->
                
                 $("#sign").attr("href", "")
                 $('#sign').hide()
+                $('#singin').hide()
                 $('#name').show()
                 $('#name').text(name)
                 $("#out").show()
@@ -79,7 +80,6 @@ License URI: http://www.themevault.net/license/-->
                     $('#name').hide()
                     $('#sign').show()
                     firebase.auth().signOut().then(function () {
-                        alert('您被逐出紫禁城了');
                         var user = firebase.auth().currentUser;
                         console.log(user)
 
