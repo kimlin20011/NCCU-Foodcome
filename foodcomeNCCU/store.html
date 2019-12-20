@@ -1,9 +1,15 @@
-<!doctype html>
+<!--Template Name:FoodEpik
+File Name:home.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/nccu2.png" />
     <title>FoodCome NCCU</title>
@@ -28,316 +34,240 @@
     <script src="js/counterup.min.js" type="text/javascript"></script>
     <script src="js/waypoints.min.js" type="text/javascript"></script>
     <script src="js/modernizr.custom.js" type="text/javascript"></script>
+    <!--Script Style Ends Here...-->
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
+
+    <script src='js/ready.js'></script>
+    <script src='js/search.js'></script>
 
     <script>
         $(document).ready(function () {
 
 
 
-            var url = location.href;
-
-            //取得問號之後的值
-            var temp = url.split("?");
-            // alert('temp' + temp)
-
-
-
-            var user = temp[1].substring(1, temp[1].indexOf('user'))
-            // alert('user:' +user)
-            // console.log('user'+user)
-            var name1 = temp[1].substring(0, user.indexOf('user'))
-            // alert('name1'+name1)
-
-            // var vars = name1.split("&");
-            // //一一顯示出來
-            // for (var i = 0; i < vars.length; i++) {
-            //     name = decodeURIComponent(vars[i])
-
-            // };
-            // console.log(name)
-
-            if (name != null) {
-
-                $("#sign").attr("href", "")
-                $('#sign').hide()
-                $('#name').show()
-                $('#name').text(name)
-                $("#out").show()
-                $("#out").click(function () {
-                    console.log('out')
-                    $('#sign').text('登入')
-                    $("#sign").attr("href", "./login.html")
-                    $('#out').hide()
-
-                    $('#name').hide()
-                    $('#sign').show()
-                    firebase.auth().signOut().then(function () {
-                        var user = firebase.auth().currentUser;
-                        console.log(user)
-
-
-                    })
-
-                })
-
-            }
-
-
-
-
         });
     </script>
-    <!--Script Style Ends Here...-->
+    <!--Scrolling Script-->
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
 
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/default.css">
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/styles1.css">
-    <!--[if IE]>
-	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-<![endif]-->
+                if (this.hash !== "") {
 
+                    event.preventDefault();
 
+                    // Store hash
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <!--End Scrolling Script-->
+    <script src="js/styleswitcher.js"></script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-    <div id="wrapper">
-        <div class="cart-icon-top">
-        </div>
-
-        <div class="cart-icon-bottom">
-        </div>
-
-        <div id="checkout">
-            CHECKOUT
-        </div>
-
-        <div id="info" style="z-index:99999;">
-            <!--Header Section-->
-            <header>
-                <nav class="navbar navbar-default navbar-fixed-top tv-navbar-custom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12">
-                                <div class="navbar-header text-center">
-                                    <div class="frame">
-                                        <a href="./landingPage.html"><img src="images/nccu2.png" width="50%" style="float: left ;
-                                        max-height: 100%;  
-                                        max-width: 100%; 
-                                        width: auto;
-                                        height: auto;
-                                        position: absolute;  
-                                        top: 10px;  
-                                        bottom: 0;  
-                                        left: 0;  
-                                        right: 0;  
-                                        margin: auto;"></a>
-                                        <a href="./landingPage.html" class="navbar-brand tv-cafe-logo" style="
-                                        
-                                        padding-left: 20px;
-                                        padding-right: 59px;
-                                        height: 55px;
-                                        width: 419px;
-                                        padding-bottom: 19px;
-                                        padding-top: 18px;
+    <!--Header Section-->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top tv-navbar-custom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="navbar-header text-center">
+                            <div class="frame" id=logo>
+                                <img src="images/nccu2.png" width="50%" style="float: left ;
+                                    max-height: 100%;  
+                                    max-width: 100%; 
+                                    width: auto;
+                                    height: auto;
+                                    position: absolute;  
+                                    top: 10px;  
+                                    bottom: 0;  
+                                    left: 0;  
+                                    right: 0;  
+                                    margin: auto;"></a>
+                                <a class="navbar-brand tv-cafe-logo" style="
                                     
-                                    ">Foodcome NCCU</a>
+                                    padding-left: 20px;
+                                    padding-right: 59px;
+                                    height: 55px;
+                                    width: 419px;
+                                    padding-bottom: 19px;
+                                    padding-top: 18px;
+                                
+                                ">Foodcome NCCU</a>
 
-                                    </div>
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                        data-target="#tv-navbar">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
                             </div>
-                            <div class="col-md-8 col-sm-12 col-xs-12">
-                                <div class="collapse navbar-collapse" id="tv-navbar">
-
-                                    <ul id='myid' class="nav navbar-nav text-center main-menu">
-
-                                        <li class=""><a href="" class="tv-menu">
-                                                <form class="form-search form-inline">
-                                                    <input type="text" class="search-query" placeholder="Search..."
-                                                        style="
-                                                width: 127px;
-                                            ">
-                                                </form>
-
-                                            </a>
-                                        </li>
-
-
-
-                                        <li class=""><a id='book' href="#" class="tv-menu"
-                                                data-toggle="dropdown">訂閱電子報</a></li>
-
-                                        <li class=''><a id='singin' href="./signIn.html" class="tv-menu"
-                                                target="_self">註冊</a>
-                                        </li>
-
-                                        <li class=''><a id='sign' href="./login.html" class="tv-menu"
-                                                target="_self">登入</a></li>
-                                        <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a>
-                                        </li>
-
-                                        <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a>
-                                        </li>
-
-                                        <li class=''><a href="" class="tv-menu" target="_self">購物車</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tv-navbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
                         </div>
                     </div>
-                </nav>
-            </header>
-            <!--End Header Section-->
-            <!-- <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p> -->
-        </div>
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="collapse navbar-collapse" id="tv-navbar">
 
-        <div id="header">
+                            <ul id='myid' class="nav navbar-nav text-center main-menu">
 
-        </div>
+                                <li class=""><a class="tv-menu">
+
+                                        <input id='search' type="text" class="search-query" placeholder="Search..."
+                                            style="
+                                            width: 127px;
+                                        ">
 
 
-        <div id="sidebar">
-            <h3>CART</h3>
-            <div id="cart">
-                <span class="empty">No items in cart.</span>
-            </div>
+                                    </a>
+                                </li>
 
-            <h3>CATEGORIES</h3>
-            <div class="checklist categories">
-                <ul>
-                    <li><a href=""><span></span>丼飯</a></li>
-                    <li><a href=""><span></span>品項2</a></li>
-                    <li><a href=""><span></span>品項3</a></li>
-                    
-                </ul>
-            </div>
 
-            
 
-            
-        </div>
+                                <li class=""><a id='book' href="" class="tv-menu">訂閱電子報</a></li>
 
-        <div id="grid-selector">
-            <div id="grid-menu">
-                View:
-                <ul>
-                    <li class="largeGrid"><a href=""></a></li>
-                    <li class="smallGrid"><a class="active" href=""></a></li>
-                </ul>
-            </div>
+                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
+                                </li>
 
-            Showing 1–9 of 48 results
-        </div>
+                                <li class=''><a id='sign' href="./login.html" class="tv-menu" target="_self">登入</a></li>
+                                <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a></li>
 
-        <div id="grid">
-            <div class="product">
-                <div class="info-large">
-                    <h4></h4>
-                    <div class="sku">
-                        PRODUCT SKU: <strong>89356</strong>
-                    </div>
+                                <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a></li>
 
-                    <div class="price-big">
-                        <span>$43</span> $39
-                    </div>
+                                <li class=''><a id='order' class="tv-menu" target="_self" style="display:none">訂單</a>
+                                </li>
 
-                    <h3>COLORS</h3>
-                    <div class="colors-large">
-                        <ul>
-                            <li><a href="" style="background:#222"><span></span></a></li>
-                            <li><a href="" style="background:#6e8cd5"><span></span></a></li>
-                            <li><a href="" style="background:#f56060"><span></span></a></li>
-                            <li><a href="" style="background:#44c28d"><span></span></a></li>
-                        </ul>
-                    </div>
-
-                    <h3>SIZE</h3>
-                    <div class="sizes-large">
-                        <span>XS</span>
-                        <span>S</span>
-                        <span>M</span>
-                        <span>L</span>
-                        <span>XL</span>
-                        <span>XXL</span>
-                    </div>
-
-                    <button class="add-cart-large">Add To Cart</button>
-
-                </div>
-                <div class="make3D">
-                    <div class="product-front">
-                        <div class="shadow"></div>
-                        <!-- 商品照片 -->
-                        <img src="images/yoshinoya-donburi-01.jpg" alt="" />
-                        <div class="image_overlay"></div>
-                        <div class="add_to_cart">Add to cart</div>
-                        <div class="view_gallery">View gallery</div>
-                        <div class="stats">
-                            <div class="stats-container">
-                                <span class="product_price">100 元</span>
-                                <span class="product_name">牛丼</span>
-                                <p></p>
-
-                                <div class="product-options">
-
-                                    <strong>詳細</strong>
-                                    <p></p>
-                                    <li>100 元（中）</li>
-                                    <li>120 元（大）</li>
-                                    <li>150 元（特盛）</li>
-                                    <li> 200 元（超特盛）</li>
-
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-back">
-                        <div class="shadow"></div>
-                        <div class="carousel">
-                            <ul class="carousel-container">
-                                <!-- 翻面換照片 -->
-                                <li><img src="images/yoshinoya-donburi-02.png" alt="" /></li>
-                                <li><img src="images/yoshinoya-donburi-03.png" alt="" /></li>
-                                <li><img src="images/yoshinoya-donburi-04.jpg" alt="" /></li>
                             </ul>
-                            <div class="arrows-perspective">
-                                <div class="carouselPrev">
-                                    <div class="y"></div>
-                                    <div class="x"></div>
-                                </div>
-                                <div class="carouselNext">
-                                    <div class="y"></div>
-                                    <div class="x"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flip-back">
-                            <div class="cy"></div>
-                            <div class="cx"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
+    <!--End Header Section-->
 
 
 
+
+
+
+
+    <!--Popular Section-->
+    <section id="Popular" class="tv-section-padding">
+        <div class="container">
+            <div class="row" id='newstore'>
+                <div class="tv-section-title text-center">
+                    <h2>Stores</h2>
+                </div>
+
+            </div>
         </div>
+    </section>
+    <!--Popular Section Ends Here...-->
 
-        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
-        <script src='js/stopExecutionOnTimeout.js?t=1'></script>
-        <script type="text/javascript" src="js/main1.js"></script>
+
+
+
+    <!--Backlink Section-->
+    <section id="backlink" class="tv-section-padding">
+        <div class="tv-backlink-bg-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="tv-backlink-info">
+                            <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
+                            <p>&copy; <a target="_blank"></a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Backlink Section Ends Here...-->
+
+    <a id="back-to-top" style="display: none;"><i class="tv-bounce fa fa-angle-double-up"></i></a>
+
+    <!--Magnefic Popup Script-->
+    <script>
+        $(document).ready(function () {
+            var $imagePopup = $('[data-image-popup]');
+            /*Image*/
+            $imagePopup.magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+    <!--Magnefic Popup Script Ends Here..-->
+
+    <!--Timer Script-->
+    <script>
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24) % 30.5);
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds,
+            };
+        }
+
+        // function initializeClock(id, endtime) {
+        //     var clock = document.getElementById(id);
+        //     // var daysSpan = clock.querySelector('.days');
+        //     var hoursSpan = clock.querySelector('.hours');
+        //     var minutesSpan = clock.querySelector('.minutes');
+        //     var secondsSpan = clock.querySelector('.seconds');
+
+        //     function updateClock() {
+        //         var t = getTimeRemaining(endtime);
+        //         daysSpan.innerHTML = (('0' + t.days).slice(-2));
+        //         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        //         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        //         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+        //         if (t.total <= 0) {
+        //             clearInterval(timeinterval);
+        //         }
+        //     }
+
+        //     updateClock();
+        //     var timeinterval = setInterval(updateClock, 1000);
+        // }
+
+        // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+        // initializeClock('tv-counter', deadline);
+    </script>
+    <!--Timer Script Ends Here...-->
+
+    <!--Counter Script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 20,
+                time: 1000
+            });
+        });
+    </script>
+    <!--Counter Script Ends Here...-->
+
 
 </body>
 
