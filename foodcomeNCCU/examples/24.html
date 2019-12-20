@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/nccu2.png" />
+    <title>FoodCome NCCU</title>
+    <!--<link href="css/scrolling-nav.css" rel="stylesheet" media="all">-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/color/tamarillo.css" title="tamarillo">
+    <link rel="stylesheet" type="text/css" href="../css/color/pomegranate.css" title="pomegranate">
+    <link rel="stylesheet" type="text/css" href="../css/color/hot-cinnamon.css" title="hot-cinnamon">
+    <link rel="stylesheet" type="text/css" href="../css/color/egg-blue.css" title="egg-blue">
+    <link rel="stylesheet" type="text/css" href="../css/color/west-side.css" title="west-side">
+    <link rel="stylesheet" type="text/css" href="../css/color/dark-green.css" title="dark-green">
+    <!--Script Style-->
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/custom.js" type="text/javascript"></script>
+    <script src="../js/waypoints.min.js" type="text/javascript"></script>
+    <script src="../js/wow.min.js" type="text/javascript"></script>
+    <script src="../js/magnific-popup.js" type="text/javascript"></script>
+    <script src="../js/counterup.min.js" type="text/javascript"></script>
+    <script src="../js/waypoints.min.js" type="text/javascript"></script>
+    <script src="../js/modernizr.custom.js" type="text/javascript"></script>
+    <!--Script Style Ends Here...-->
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
+
+
+
+
+
+    <!-- Include Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+
+    <!-- Include SmartCart CSS -->
+    <link href="../dist/css/smart_cart.min.css" rel="stylesheet" type="text/css" />
+    <script src='../js/ready.js'></script>
+    <!-- <script src='../js/search.js'></script> -->
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!--Header Section-->
+    <!--Header Section-->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top tv-navbar-custom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="navbar-header text-center">
+                            <div class="frame" id=logo1>
+                                <img src="../images/nccu2.png" width="50%" style="float: left ;
+                                        max-height: 100%;  
+                                        max-width: 100%; 
+                                        width: auto;
+                                        height: auto;
+                                        position: absolute;  
+                                        top: 10px;  
+                                        bottom: 0;  
+                                        left: 0;  
+                                        right: 0;  
+                                        margin: auto;"></a>
+                                <a class="navbar-brand tv-cafe-logo" style="
+                                        
+                                        padding-left: 20px;
+                                        padding-right: 59px;
+                                        height: 55px;
+                                        width: 419px;
+                                        padding-bottom: 19px;
+                                        padding-top: 18px;
+                                    
+                                    ">Foodcome NCCU</a>
+
+                            </div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tv-navbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="collapse navbar-collapse" id="tv-navbar">
+
+                            <ul id='myid' class="nav navbar-nav text-center main-menu">
+
+                                <li class=""><a class="tv-menu">
+
+                                        <input id='search' type="text" class="search-query" placeholder="Search..."
+                                            style="
+                                                width: 127px;
+                                            ">
+
+
+                                    </a>
+                                </li>
+
+
+
+                                <li class=""><a id='book' href="#" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
+
+                                <li class=''><a id='singin' href="../signIn.html" class="tv-menu" target="_self">註冊</a>
+                                </li>
+
+                                <li class=''><a id='sign' href="../login.html" class="tv-menu" target="_self">登入</a>
+                                </li>
+                                <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a></li>
+
+                                <li id='out1' class=''><a id='out11' class="tv-menu" style="display:none">登出</a></li>
+
+                                <li class=''><a id='order1'  class="tv-menu" 
+                                        style="display:none">訂單</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--End Header Section-->
+    </section>>
+    <br />
+    <section class="container">
+
+
+
+
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id='storename'>
+                        吉野家
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+
+                            <!-- BEGIN PRODUCTS -->
+                            <div class="col-md-4 col-sm-6" name="p1">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-01.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">牛丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=100>100 元（中）</option>
+                                                    <option value=120>120 元（大）</option>
+                                                    <option value=150>150 元（特盛）</option>
+                                                    <option value=200>200 元（超特盛）</option>
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-01.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">豚丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=90>90 元（中）</option>
+                                                    <option value=110>110 元（大）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-03.png" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">雞丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=100>100 元（中）</option>
+                                                    <option value=150>150 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-04a.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">翠玉子牛肉丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=135>135 元（中）</option>
+                                                    <option value=165>165 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-04b.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">翠玉子豚肉丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=125>125 元（中）</option>
+                                                    <option value=155>155 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-05a.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">韓泡牛肉丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=135>135 元（中）</option>
+                                                    <option value=165>165 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-05b.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">韓泡豚肉丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=125>125 元（中）</option>
+                                                    <option value=155>155 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="../images/yoshinoya-donburi-05b.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">親子丼</h4>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>價錢</label>
+                                                <select name="product_price" class="form-control input-sm">
+                                                    <option value=105>105 元</option>
+                                                    <option value=155>155 元（特盛）</option>
+
+                                                </select>
+                                            </div>
+                                            <label>數量: </label>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1"
+                                                    value="1" type="number">
+                                            </div>
+
+
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to
+                                                cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- END PRODUCTS -->
+
+                            
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="col-md-4">
+                <div id="smartcart"></div>
+                
+            </aside>
+        </div>
+    </section>
+
+    <!-- Include jQuery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <!-- Include SmartCart -->
+    <script src="../dist/js/jquery.smartCart.min.js" type="text/javascript"></script>
+    <!-- Initialize -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize Smart Cart    	
+            $('#smartcart').smartCart();
+        });
+    </script>
+
+
+</body>
+
+</html>
