@@ -15,4 +15,7 @@
 * firebase資料庫登入  
 * facebook OAuth2 登入
 
+## facebook角色網址
+https://developers.facebook.com/apps/1248378592172679/roles/roles/
+
 
