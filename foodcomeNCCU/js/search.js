@@ -27,15 +27,22 @@ $(document).ready(function () {
         querySnapshot.forEach(function (doc) {
             store.push(doc.data());
         });
-
+        // console.log(store)
         classList = store.map(item => Object.values(item)[1]);
-        foodList = store.map(item => Object.values(item)[1]);
+        foodList = store.map(item => Object.values(item)[2]);
+        console.log(foodList)
         nameList = store.map(item => Object.values(item)[4]);
         addList = store.map(item => Object.values(item)[0]);
         noList = store.map(item => Object.values(item)[5]);
         ratingList = store.map(item => Object.values(item)[6]);
         timeList = store.map(item => Object.values(item)[7]);
+        priceList = store.map(item => Object.values(item)[8]);
+
         // console.log('obj', typeof (nameList), nameList)
+
+ 
+    
+    
 
         var url = location.href;
 
@@ -57,9 +64,67 @@ $(document).ready(function () {
             res1.forEach(function (element) {
                 element = (parseInt(element, 10))
                 // alert(nameList[element])
-                console.log('element', element, nameList[element], classList[element], timeList[element])
-                $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id='+noList[element]+'><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + classList[element] + '</span><p>' + timeList[element] + '</p></div></div>')
+                // console.log('element', element, nameList[element], classList[element], timeList[element])
+                if (typeof (temp[1]) != 'undefined' && temp[1] != 'undefined') {
+                    $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html?'+name+'"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                }
+                else{
+                    $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                }
+
             });
+
+            $('#ratingSelect').on('change', function () {
+                $('#priceSelect').val('')
+                var v1 = this.value;
+                $('#newstore').html('')
+                res1.forEach(function (element) {
+
+                    element = (parseInt(element, 10))
+                    // alert(nameList[element])
+                    // console.log('element', element, ratingList[element], priceList[element])
+                    var r1 = (parseInt(ratingList[element], 10))
+                    if (v1 == '') {
+                        $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                    } else {
+                        if (r1 == v1) {
+
+                            $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                        }
+                    }
+                });
+            });
+            $('#priceSelect').on('change', function () {
+                $('#ratingSelect').val('')
+
+                var p1 = this.value;
+                console.log('p1', p1, typeof (p1))
+                $('#newstore').html('')
+                res1.forEach(function (element) {
+
+                    element = (parseInt(element, 10))
+
+                    var p11 = (parseInt(priceList[element], 10))
+                    if (p1 == '') {
+                        $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html'+name+'"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                    } else {
+                       
+                        if (p11 == p1) {
+
+                            $('#newstore').append('<div class="col-md-3 col-sm-4 col-xs-12" id=' + noList[element] + '><a href="../examples/' + noList[element] + '.html"><div class="tv-dishes-img"><img src="images/' + nameList[element] + '.jpg" class="width-100 img-responsive"></div><div class="tv-dishes-info"><h5>' + nameList[element] + '</h5><span>' + ratingList[element] + '顆星' + '</span><p>' + '營業時間:' + timeList[element] + '</p></div></a></div>')
+
+                        }
+                    }
+
+
+                });
+            });
+
 
 
         } else {
@@ -80,10 +145,15 @@ $(document).ready(function () {
             if (event.which == 13) {
 
                 var value = $(this).val();
+                console.log('value', value)
+
                 var searchstr = value;
-                console.log('searchstr', searchstr)
                 var searcharr = searchstr.split('');
+                console.log('searchstr', searchstr)
+
                 var reg = new RegExp(searcharr.join('.*'));
+                console.log('reg', reg)
+
                 var resultarr = new Array();
                 // alert(value)
                 for (var i = 0; i < nameList.length; i++) {
@@ -91,7 +161,7 @@ $(document).ready(function () {
                         if (resultarr.includes(nameList[i]) == false) {
                             // resultarr.push(nameList[i]);
                             console.log(nameList[i])
-                            if(resultarr.length<8 && resultarr.includes(i)==false){
+                            if (resultarr.length < 8 && resultarr.includes(i) == false) {
                                 resultarr.push(i);
                             }
 
@@ -103,20 +173,20 @@ $(document).ready(function () {
                         if (resultarr.includes(classList[i]) == false) {
                             // resultarr.push(nameList[i]);
                             console.log(nameList[i])
-                            if(resultarr.length<8 && resultarr.includes(i)==false){
+                            if (resultarr.length < 8 && resultarr.includes(i) == false) {
                                 resultarr.push(i);
                             }
-                           
+
                         }
 
                     }
                 }
                 for (var i = 0; i < foodList.length; i++) {
-                    if (reg.exec(classList[i])) {
+                    if (reg.exec(foodList[i])) {
                         if (resultarr.includes(foodList[i]) == false) {
                             // resultarr.push(nameList[i]);
                             console.log(nameList[i])
-                            if(resultarr.length<8 && resultarr.includes(i)==false){
+                            if (resultarr.length < 8 && resultarr.includes(i) == false) {
                                 resultarr.push(i);
                             }
                         }
@@ -124,7 +194,7 @@ $(document).ready(function () {
                     }
                 }
                 console.log('resultarr', resultarr);
-                window.location = './store.html?' + name + '/res' + resultarr;
+                window.location = '../store.html?' + name + '/res' + resultarr;
 
 
 
@@ -136,6 +206,213 @@ $(document).ready(function () {
 
 
         });
+
+        $('#serch1').click(function () {
+
+            // alert('click')
+            var valu1 = $(exampleFormControlInput1).val();
+            console.log('value', valu1, typeof (valu1))
+            var searchstr = valu1;
+            var searcharr = searchstr.split(' ');
+            console.log('searcharr', searcharr)
+
+            var reg = new RegExp(searcharr.join('.*'));
+            console.log(typeof (reg), 'reg', reg)
+            var resultarr = new Array();
+            // console.log(nameList,typeof(nameList))
+
+
+
+
+            for (var i = 0; i < nameList.length; i++) {
+                if (reg.exec(nameList[i])) {
+                    if (resultarr.includes(nameList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                            console.log(nameList[i])
+                        }
+
+                    }
+                }
+            }
+            for (var i = 0; i < classList.length; i++) {
+                if (reg.exec(classList[i])) {
+                    if (resultarr.includes(classList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+
+                    }
+
+                }
+            }
+            for (var i = 0; i < foodList.length; i++) {
+                if (reg.exec(foodList[i])) {
+                    if (resultarr.includes(foodList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+                    }
+
+                }
+            }
+            console.log('resultarr', resultarr);
+            window.location = '../store.html?' + name + '/res' + resultarr;
+
+
+
+
+
+
+
+
+        })
+        $('#f1').click(function () {
+            var resultarr = new Array();
+
+            resultarr = ['13', '12', '4', '5', '6', '7', '8', '9', '10']
+            console.log('resultarr', resultarr);
+            // window.location = './store.html?' + name + '/res' + resultarr;
+            window.location = '../store.html?' + name + '/res' + resultarr;
+
+
+
+
+
+
+
+
+        })
+        $('#f2').click(function () {
+
+            // alert('click')
+            var valu1 = '小吃';
+            // alert(valu1)
+            var searchstr = valu1;
+            console.log('searchstr', searchstr)
+            var searcharr = searchstr.split('');
+            var reg = new RegExp(searcharr.join('.*'));
+            // alert(reg)
+            var resultarr = new Array();
+            // alert(value)
+            for (var i = 0; i < nameList.length; i++) {
+                if (reg.exec(nameList[i])) {
+                    if (resultarr.includes(nameList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+
+                    }
+                }
+            }
+            for (var i = 0; i < classList.length; i++) {
+                if (reg.exec(classList[i])) {
+                    if (resultarr.includes(classList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+
+                    }
+
+                }
+            }
+            for (var i = 0; i < foodList.length; i++) {
+                if (reg.exec(foodList[i])) {
+                    if (resultarr.includes(foodList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+                    }
+
+                }
+            }
+            console.log('resultarr', resultarr);
+            // window.location = './store.html?' + name + '/res' + resultarr;
+            window.location = '../store.html?' + name + '/res' + resultarr;
+
+
+
+
+
+
+
+
+        })
+        $('#f3').click(function () {
+
+            // alert('click')
+            var valu1 = '飲料';
+            // alert(valu1)
+            var searchstr = valu1;
+            console.log('searchstr', searchstr)
+            var searcharr = searchstr.split('');
+            var reg = new RegExp(searcharr.join('.*'));
+            // alert(reg)
+            var resultarr = new Array();
+            // alert(value)
+            for (var i = 0; i < nameList.length; i++) {
+                if (reg.exec(nameList[i])) {
+                    if (resultarr.includes(nameList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+
+                    }
+                }
+            }
+            for (var i = 0; i < classList.length; i++) {
+                if (reg.exec(classList[i])) {
+                    if (resultarr.includes(classList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+
+                    }
+
+                }
+            }
+            for (var i = 0; i < foodList.length; i++) {
+                if (reg.exec(foodList[i])) {
+                    if (resultarr.includes(foodList[i]) == false) {
+                        // resultarr.push(nameList[i]);
+                        console.log(nameList[i])
+                        if (resultarr.length < 8 && resultarr.includes(i) == false) {
+                            resultarr.push(i);
+                        }
+                    }
+
+                }
+            }
+            console.log('resultarr', resultarr);
+            // window.location = './store.html?' + name + '/res' + resultarr;
+            window.location = '../store.html?' + name + '/res' + resultarr;
+
+
+
+
+
+
+
+
+        })
+
+
 
 
 
