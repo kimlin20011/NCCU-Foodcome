@@ -1,18 +1,12 @@
 $(document).ready(function () {
 
 
-
     var url = location.href;
     if (url.includes("/res")) {
         var r = url.split("/res");
-
         var res = r[1]
 
-
-
         var temp = r[0].split("?");
-
-
 
         name = decodeURIComponent(temp[1])
         // alert(name)
@@ -20,16 +14,12 @@ $(document).ready(function () {
     } else {
         var temp = url.split("?");
 
-
         name = decodeURIComponent(temp[1])
-
-
-
     }
 
 
 
-    if (typeof (temp[1]) != 'undefined') {
+    if (typeof (temp[1]) != 'undefined' && temp[1] != 'undefined') {
         // alert('not null')
 
         $("#sign").attr("href", "")
@@ -68,8 +58,10 @@ $(document).ready(function () {
 
         })
         $('#24').click(function () {
+
             href1 = "./examples/24.html?" + name
             location.href = href1
+            // alert('click')
         })
 
         $("#logo").click(function () {
@@ -105,13 +97,23 @@ $(document).ready(function () {
             window.location = '../landingPage.html';
 
         })
-        $('#yoshinoya').click(function () {
-            href1 = "./examples/yoshinoya.html"
-            location.href = href1
+        $('#24').click(function () {
+            window.location = '../examples/24.html';
+        })
+        $("#order").click(function () {
+            // alert('isme')
+            window.location = './order.html?' 
+
+        })
+        $("#order1").click(function () {
+            // alert('isme')
+            window.location = '../order.html?' 
+
         })
 
 
     }
+
 
 
 

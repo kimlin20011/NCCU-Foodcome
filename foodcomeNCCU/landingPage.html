@@ -43,7 +43,10 @@ License URI: http://www.themevault.net/license/-->
     <script>
         $(document).ready(function () {
 
-           
+
+            $('#24').click(function () {
+                // alert('2')
+            })
 
 
 
@@ -122,7 +125,7 @@ License URI: http://www.themevault.net/license/-->
 
                             <ul id='myid' class="nav navbar-nav text-center main-menu">
 
-                                <li class=""><a class="tv-menu">
+                                <!-- <li class=""><a class="tv-menu">
 
                                         <input id='search' type="text" class="search-query" placeholder="Search..."
                                             style="
@@ -131,11 +134,11 @@ License URI: http://www.themevault.net/license/-->
 
 
                                     </a>
-                                </li>
+                                </li> -->
 
 
 
-                                <li class=""><a id='book' href="" class="tv-menu" >訂閱電子報</a></li>
+                                <!-- <li class=""><a id='book' href="" class="tv-menu" >訂閱電子報</a></li> -->
 
                                 <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
                                 </li>
@@ -145,8 +148,8 @@ License URI: http://www.themevault.net/license/-->
 
                                 <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a></li>
 
-                                <li class=''><a id='order' class="tv-menu" target="_self"
-                                        style="display:none">訂單</a></li>
+                                <li class=''><a id='order' class="tv-menu" target="_self" style="display:none">訂單</a>
+                                </li>
 
                             </ul>
                         </div>
@@ -170,7 +173,7 @@ License URI: http://www.themevault.net/license/-->
                     <div class="form-group"></div>
                     <input type="text" class="form-control" id="exampleFormControlInput1"
                         placeholder="店家名稱,餐點名稱,位置...等等">
-                    <div class="tv-mb-10"></div><a class="btn btn-mod btn-border-white btn-round" href="">搜尋</a>
+                    <div class="tv-mb-10"></div><a class="btn btn-mod btn-border-white btn-round" id='serch1'>搜尋</a>
                 </div>
 
             </div>
@@ -190,10 +193,11 @@ License URI: http://www.themevault.net/license/-->
                                 <img src="images/carrot.png">
                             </div>
                             <div class="tv-special-block-title">
-                                <h4>餐餐都有</h4>
+
+                                <h4><a style="color:white;" id="f1">餐餐都有</a></h4>
                             </div>
                             <div class="tv-special-block-desc">
-                                <p>早餐,早午餐,午餐,下午茶,晚餐,宵夜</p>
+                                <p>早餐,早午餐,午餐,晚餐,宵夜</p>
                             </div>
                         </div>
                     </div>
@@ -203,10 +207,10 @@ License URI: http://www.themevault.net/license/-->
                                 <img src="images/chef-hat-outline-symbol.png">
                             </div>
                             <div class="tv-special-block-title">
-                                <h4>點心</h4>
+                                <h4><a style="color:white;" id="f2">小吃</a></h4>
                             </div>
                             <div class="tv-special-block-desc">
-                                <p>麵包,蛋糕,糕餅,餅乾</p>
+                                <p>麵包,下午茶,蛋糕,糕餅,餅乾,小吃</p>
                             </div>
                         </div>
                     </div>
@@ -216,7 +220,7 @@ License URI: http://www.themevault.net/license/-->
                                 <img src="images/red-wine-glass.png">
                             </div>
                             <div class="tv-special-block-title">
-                                <h4>飲料</h4>
+                                <h4><a style="color:white;" id="f3">飲料</a></h4>
                             </div>
                             <div class="tv-special-block-desc">
                                 <p>咖啡,手搖飲,現搾果汁</p>
@@ -259,14 +263,16 @@ License URI: http://www.themevault.net/license/-->
                 </div>
 
                 <div class="col-md-3 col-sm-4 col-xs-12" id="24">
-                    <div class="tv-dishes-img">
-                        <img src="images/Image20.jpg" class="width-100 img-responsive">
-                    </div>
-                    <div class="tv-dishes-info">
-                        <h5>吉野家（文山政大店）</h5>
-                        <span>早餐,午餐,晚餐</span>
-                        <p>一～日：10:30 - 21:30</p>
-                    </div>
+                    <a >
+                        <div class="tv-dishes-img">
+                            <img src="images/Image20.jpg" class="width-100 img-responsive">
+                        </div>
+                        <div class="tv-dishes-info">
+                            <h5>吉野家（文山政大店）</h5>
+                            <span>早餐,午餐,晚餐</span>
+                            <p>一～日：10:30 - 21:30</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12 tv-dishes-both">
                     <div class="tv-dishes-img">
@@ -293,9 +299,9 @@ License URI: http://www.themevault.net/license/-->
                         <img src="images/Image23.jpg" class="width-100 img-responsive">
                     </div>
                     <div class="tv-dishes-info">
-                        <a href="https://www.foodpanda.com.tw/restaurant/a9bl/xin-yi-guo">
-                            <h5>辛一鍋</h5>
-                        </a>
+
+                        <h5>辛一鍋</h5>
+
                         <span>午餐,晚餐</span>
                         <p>一～六：11:15 - 20:15</p>
                     </div>
@@ -320,57 +326,21 @@ License URI: http://www.themevault.net/license/-->
                         <p>一～日：7:00 - 23:00</p>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <!-- <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="tv-allitems-button">
                         <a href="" class="btn btn-item">See More Stores</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
     <!--Popular Section Ends Here...-->
 
-    <!--Clients Section-->
-    <section id="clients" class="tv-section-padding">
-        <div class="tv-clients-banner tv-section-padding-70"
-            style="background: rgba(0, 0, 0, 0) url('images/Image42.png') no-repeat scroll center top / cover;">
-            <div class="container">
-                <div class="row">
-                    <div class="tv-clients-info">
-                        <p>簡單三個步驟,就能使用FOODCOME NCCU,讓你不管是在政大哪個角落,隨時滿足你的口腹之慾ＸＤ</p>
-                        <div class="border"></div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="tv-clients-block">
-                            <span>01.</span>
-                            <h4>搜尋</h4>
-                            <p>在搜尋列打入想點餐的Stores或是用餐點名稱關鍵字搜尋</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="tv-clients-block">
-                            <span>02.</span>
-                            <h4>加入購物車</h4>
-                            <p>進入Stores中的菜單,將餐點加入購物車</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="tv-clients-block">
-                            <span>03.</span>
-                            <h4>選擇送餐位置並結帳</h4>
-                            <p>請填好正確送餐地點（教室或辦公室）,可接受金融卡與信用卡以及貨到付款喔！</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Clients Section Ends Here...-->
+    、
 
 
     <!--Discount Section-->
-    <div id="discount" class="tv-section-padding">
+    <!-- <div id="discount" class="tv-section-padding">
         <div class="tv-discount-image"
             style="background: rgba(0, 0, 0, 0) url('images/Image26.png') no-repeat scroll center top / cover;">
             <div class="tv-discount-banner tv-section-padding-70">
@@ -379,12 +349,12 @@ License URI: http://www.themevault.net/license/-->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Discount Section Ends Here...-->
 
 
-    <!--Join us Section-->
-    <div id="Join us" class="tv-section-padding">
+    <!-- Join us Section-->
+    <!-- <div id="Join us" class="tv-section-padding">
         <div class="tv-open-image"
             style="background: rgba(0, 0, 0, 0) url('images/Image17.png') no-repeat scroll center top / cover;">
             <div class="tv-open-banner tv-section-padding-70">
@@ -403,13 +373,13 @@ License URI: http://www.themevault.net/license/-->
                 </div>
             </div>
         </div>
-    </div>
-    <!--Open Section Ends Here...-->
+    </div> -->
+    <!--Open Section Ends Here... -->
 
 
 
     <!--NewsLetter Section-->
-    <section id="newsletter" class="tv-section-padding">
+    <!-- <section id="newsletter" class="tv-section-padding">
         <div class="newsletter-bg-img"
             style="background: rgba(0, 0, 0, 0) url('images/Image46.png') no-repeat scroll center top / cover;">
             <div class="container">
@@ -438,7 +408,7 @@ License URI: http://www.themevault.net/license/-->
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--NewsLetter Section Ends Here...-->
 
     <!--Footer Section-->
@@ -453,11 +423,11 @@ License URI: http://www.themevault.net/license/-->
                         <p> 為了守護政大師生們的肚子,貫徹愛與真實的正義化身,永遠不會餓肚子的明天在等著我們！！就是這樣！！</p>
                         <div class="tv-social">
                             <div class="tv-social-navbar">
-                                <a href=""><span class="fa fa-facebook-f"></span></a>
-                                <a href=""><span class="fa fa-twitter"></span></a>
-                                <a href=""><span class="fa fa-google-plus"></span></a>
-                                <a href=""><span class="fa fa-linkedin"></span></a>
-                                <a href=""><span class="fa fa-pinterest"></span></a>
+                                <a><span class="fa fa-facebook-f"></span></a>
+                                <a><span class="fa fa-twitter"></span></a>
+                                <a><span class="fa fa-google-plus"></span></a>
+                                <a><span class="fa fa-linkedin"></span></a>
+                                <a><span class="fa fa-pinterest"></span></a>
                             </div>
                         </div>
                     </div>
@@ -527,8 +497,7 @@ License URI: http://www.themevault.net/license/-->
                     <div class="col-md-12 col-xs-12">
                         <div class="tv-backlink-info">
                             <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
-                            <p>&copy; All right reserved. Designed by <a href="https://www.themevault.net"
-                                    target="_blank">ThemeVault</a> </p>
+                            <p>&copy; NCCU-foodcome 🍤 </p>
                         </div>
                     </div>
                 </div>

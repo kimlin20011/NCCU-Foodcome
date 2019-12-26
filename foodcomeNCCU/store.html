@@ -123,18 +123,13 @@ License URI: http://www.themevault.net/license/-->
 
                                 <li class=""><a class="tv-menu">
 
-                                        <input id='search' type="text" class="search-query" placeholder="Search..."
-                                            style="
-                                            width: 127px;
-                                        ">
-
-
+                                        <input id='search' type="text" class="search-query" placeholder="Search...">
                                     </a>
                                 </li>
 
 
 
-                                <li class=""><a id='book' href="" class="tv-menu">訂閱電子報</a></li>
+                                <!-- <li class=""><a id='book' href="" class="tv-menu">訂閱電子報</a></li> -->
 
                                 <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
                                 </li>
@@ -161,17 +156,32 @@ License URI: http://www.themevault.net/license/-->
 
 
 
-
     <!--Popular Section-->
     <section id="Popular" class="tv-section-padding">
         <div class="container">
-            <div class="row" id='newstore'>
-                <div class="tv-section-title text-center">
-                    <h2>Stores</h2>
-                </div>
+            <div class="col-sm-12">
+                <select id="ratingSelect">
+                    <option value="">星等</option>
+                    <option value="3">3顆星+</option>
+                    <option value="4">4顆星+</option>
+                    <option value="5">5顆星+</option>
+                </select>
+                <select id="priceSelect">
+                    <option value="">價位</option>
 
+                    <option value="50">平價</option>
+                    <option value="100">中等</option>
+                    <option value="200">高價</option>
+                </select>
             </div>
-        </div>
+            <div class="container" style="display: flex">
+                <div class="row" id='newstore'>
+                    <div class="tv-section-title text-center">
+                        <h2>Stores</h2>
+                    </div>
+
+                </div>
+            </div>
     </section>
     <!--Popular Section Ends Here...-->
 

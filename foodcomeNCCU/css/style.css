@@ -199,7 +199,8 @@ header {
 }
 
 input.search-query {
-    padding-left:27px;
+    padding-left:10px;
+    width: 100px;
 }
 
 form.form-search {
@@ -2152,8 +2153,8 @@ mark, .mark {
     color: #000000;
 }
 .btn-mod.btn-border-white {
-    background: rgba(0,0,0,0);
-    border: 2px solid #e1e1e1;
+    background: rgb(249, 167, 13);
+    /* border: 2px solid #e1e1e1; */
     color: #e1e1e1;
 }
 .btn-mod.btn-primary {
@@ -2210,6 +2211,7 @@ label {
     letter-spacing: 0.1em;
 }
 .elements-form-fields .form-control {
+    float:right ;
     border-radius: 0;
     box-shadow: none;
 }

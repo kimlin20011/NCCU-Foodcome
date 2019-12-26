@@ -96,10 +96,7 @@
 
                                 <li class=""><a class="tv-menu">
 
-                                        <input id='search' type="text" class="search-query" placeholder="Search..."
-                                            style="
-                                                width: 127px;
-                                            ">
+                                        <input id='search' class="search-query" type="text" placeholder="Search...">
 
 
                                     </a>
@@ -107,7 +104,7 @@
 
 
 
-                                <li class=""><a id='book' href="#" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
+                                <!-- <li class=""><a id='book' href="#" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li> -->
 
                                 <li class=''><a id='singin' href="../signIn.html" class="tv-menu" target="_self">註冊</a>
                                 </li>
@@ -118,8 +115,7 @@
 
                                 <li id='out1' class=''><a id='out11' class="tv-menu" style="display:none">登出</a></li>
 
-                                <li class=''><a id='order1'  class="tv-menu" 
-                                        style="display:none">訂單</a></li>
+                                <li class=''><a id='order1' class="tv-menu" style="display:none">訂單</a></li>
 
                             </ul>
                         </div>
@@ -405,7 +401,7 @@
 
                             <!-- END PRODUCTS -->
 
-                            
+
 
 
                         </div>
@@ -416,8 +412,10 @@
 
             <aside class="col-md-4">
                 <div id="smartcart"></div>
-                
             </aside>
+
+
+
         </div>
     </section>
 
@@ -431,6 +429,7 @@
         $(document).ready(function () {
             // Initialize Smart Cart    	
             $('#smartcart').smartCart();
+
         });
     </script>
 
