@@ -2,7 +2,7 @@
 
 
 ## 初始設定
-* `git clone`
+* `git clone https://github.com/kimlin20011/NCCU-Foodcome.git`
 * `npm install`
 * `npm start`
 
