@@ -5,7 +5,7 @@ const config = require('./config');
 passport.use(new FacebookStrategy({
     clientID: config.facebookOAuth2.FACEBOOK_APP_ID.toString(),
     clientSecret: config.facebookOAuth2.FACEBOOK_APP_SECRET.toString(),
-    callbackURL: "http://localhost:3001/member/auth/facebook/callback"
+    callbackURL: "http://localhost:3008/member/auth/facebook/callback"
 },
 //將callback結果放到session
     function (accessToken, refreshToken, profile, done) {
