@@ -2,12 +2,12 @@
 
 
 ## 初始設定
-* `git clone`
+* `git clone https://github.com/kimlin20011/NCCU-Foodcome.git`
 * `npm install`
 * `npm start`
 
 ## 進入頁面
-* localhost:3001/landingPage.html
+* localhost:3008/landingPage.html
 * 按登入按鈕
 
 
