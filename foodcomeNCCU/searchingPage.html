@@ -1,0 +1,1172 @@
+<!--Template Name:FoodEpik
+File Name:home.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/nccu2.png" />
+    <title>FoodCome NCCU</title>
+    <!--<link href="css/scrolling-nav.css" rel="stylesheet" media="all">-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/color/tamarillo.css" title="tamarillo">
+    <link rel="stylesheet" type="text/css" href="css/color/pomegranate.css" title="pomegranate">
+    <link rel="stylesheet" type="text/css" href="css/color/hot-cinnamon.css" title="hot-cinnamon">
+    <link rel="stylesheet" type="text/css" href="css/color/egg-blue.css" title="egg-blue">
+    <link rel="stylesheet" type="text/css" href="css/color/west-side.css" title="west-side">
+    <link rel="stylesheet" type="text/css" href="css/color/dark-green.css" title="dark-green">
+    <!--Script Style-->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/waypoints.min.js" type="text/javascript"></script>
+    <script src="js/wow.min.js" type="text/javascript"></script>
+    <script src="js/magnific-popup.js" type="text/javascript"></script>
+    <script src="js/counterup.min.js" type="text/javascript"></script>
+    <script src="js/waypoints.min.js" type="text/javascript"></script>
+    <script src="js/wow.min.js" type="text/javascript"></script>
+    <script src="js/modernizr.custom.js" type="text/javascript"></script>
+    <!--Script Style Ends Here...-->
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <!--Header Section-->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top tv-navbar-custom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="navbar-header text-center">
+                            <div class="frame">
+                                <a href="./landingPage.html"><img src="images/nccu2.png" width="50%" style="float: left ;
+                                    max-height: 100%;  
+                                    max-width: 100%; 
+                                    width: auto;
+                                    height: auto;
+                                    position: absolute;  
+                                    top: 10px;  
+                                    bottom: 0;  
+                                    left: 0;  
+                                    right: 0;  
+                                    margin: auto;"></a>
+                                <a href="./landingPage.html" class="navbar-brand tv-cafe-logo" style="
+                                    
+                                    padding-left: 20px;
+                                    padding-right: 59px;
+                                    height: 55px;
+                                    width: 419px;
+                                    padding-bottom: 19px;
+                                    padding-top: 18px;
+                                
+                                ">Foodcome NCCU</a>
+                            </div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tv-navbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="collapse navbar-collapse" id="tv-navbar">
+
+                            <ul id='myid' class="nav navbar-nav text-center main-menu">
+
+                                <li class="tv-menu">
+                                    <a id="search-link" href="#" class="tv-menu">
+                                        <form class="form-search form-inline">
+                                            <input id="keyword-input" type="text" class="search-query" placeholder="Search..." style="width: 127px;" />
+                                        </form>
+                                    </a>
+                                </li>
+                                <li class=""><a id='book' href="#newsletter" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
+                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a></li>
+                                <li class=''><a id='sign' href="./login.html" class="tv-menu" target="_self">登入</a></li>
+                                <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a></li>
+                                <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a></li>
+                                <li class=''><a href="" class="tv-menu" target="_self">購物車</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--End Header Section-->
+
+
+    <!--SearchingResult Section-->
+    <section id="Popular" class="tv-section-padding">
+        <div class="container">
+            <div class="tv-section-title text-center">
+                    <h2>Searching Results</h2>
+            </div>
+            <div class="col-sm-12">
+                <select id="ratingSelect" onchange="update()">
+                    <option selected="selected" value="1">星等</option>
+                    <option value="1">1顆星+</option>
+                    <option value="2">2顆星+</option>
+                    <option value="3">3顆星+</option>
+                    <option value="4">4顆星+</option>
+                    <option value="5">5顆星+</option>
+                </select>
+                <select id="priceSelect" onchange="update()">
+                    <option selected="selected" value="0">價位</option>
+                    <option value="1">平價</option>
+                    <option value="2">中等</option>
+                    <option value="3">高價</option>
+                </select>
+            </div>
+            <div class="container" style="display: flex">
+            <div id="filter" class="row"></div>
+            </div>
+        </div>
+    </section>
+    <!--SearchingResult Section Ends Here...-->
+
+ 
+    <!--NewsLetter Section-->
+    <section id="newsletter" class="tv-section-padding">
+        <div class="newsletter-bg-img"
+            style="background: rgba(0, 0, 0, 0) url('images/Image46.png') no-repeat scroll center top / cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="tv-newsletter-title">
+                            <h3>訂閱電子報</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="tv-newsletter-title">
+                            <p>填入你的E-mail訂閱電子報,我們將不定期提供商家優惠以及平台優惠的資訊唷！</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="tv-newsletter-title">
+                            <form>
+                                <div id="subscribe-block">
+                                    <input class="form-control tv-newsletter-input" value="" required=""
+                                        name="subscribe" placeholder="Enter Your Email Address" type="text">
+                                    <button type="submit" href="" class="btn subscribe-button">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--NewsLetter Section Ends Here...-->
+
+    <!--Footer Section-->
+    <footer id="foodfooter" class="tv-section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="tv-footer-title">
+                        <h3>關於我們</h3>
+                    </div>
+                    <div class="tv-footer-info">
+                        <p> 為了守護政大師生們的肚子,貫徹愛與真實的正義化身,永遠不會餓肚子的明天在等著我們！！就是這樣！！</p>
+                        <div class="tv-social">
+                            <div class="tv-social-navbar">
+                                <a href=""><span class="fa fa-facebook-f"></span></a>
+                                <a href=""><span class="fa fa-twitter"></span></a>
+                                <a href=""><span class="fa fa-google-plus"></span></a>
+                                <a href=""><span class="fa fa-linkedin"></span></a>
+                                <a href=""><span class="fa fa-pinterest"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tv-clear-both col-md-4 col-sm-6 col-xs-12">
+                    <div class="tv-footer-title">
+                        <h3>送餐時間</h3>
+                    </div>
+                    <div class="padding-0 col-md-6 col-sm-6 col-xs-6">
+                        <div class="tv-footer-info">
+                            <h5>Mon-Tue</h5>
+                            <h5>Wed</h5>
+                            <h5>Thu-Fri</h5>
+                            <h5>Sat</h5>
+                            <h5>Sun</h5>
+                            <h5>Holidays</h5>
+                        </div>
+                    </div>
+                    <div class="padding-0 col-md-6 col-sm-6 col-xs-6">
+                        <div class="tv-footer-info">
+                            <h5>07:00-24:00</h5>
+                            <h5>07:00-24:00</h5>
+                            <h5>07:00-24:00</h5>
+                            <h5>07:00-24:00</h5>
+                            <h5>07:00-24:00</h5>
+                            <h5>07:00-24:00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="tv-footer-title">
+                        <h3>商家種類</h3>
+                    </div>
+                    <div class="padding-0 col-md-6 col-sm-6 col-xs-6">
+                        <div class="tv-footer-info">
+                            <ul class="footer-menu">
+                                <li>早餐店</li>
+                                <li>麵店</li>
+                                <li>定食</li>
+                                <li>素食</li>
+                                <li>速食店</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="padding-0 col-md-6 col-sm-6 col-xs-6">
+                        <div class="tv-footer-info">
+                            <ul class="footer-menu">
+                                <li>現榨果汁店</li>
+                                <li>義大利麵</li>
+                                <li>麵包店</li>
+                                <li>咖啡廳</li>
+                                <li>中式早餐店</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Section Ends Here...-->
+
+    <!--Backlink Section-->
+    <section id="backlink" class="tv-section-padding">
+        <div class="tv-backlink-bg-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="tv-backlink-info">
+                            <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
+                            <p>&copy; All right reserved. Designed by <a href="https://www.themevault.net"
+                                    target="_blank">ThemeVault</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Backlink Section Ends Here...-->
+
+    <a id="back-to-top" style="display: none;"><i class="tv-bounce fa fa-angle-double-up"></i></a>
+
+   
+    <!--Filter-->
+    <script>
+        function fullList() {
+            return  [
+                {
+                    "undefined": "1",
+                    "imageSrc": "images/store1.jpg",
+                    "name": "119巷勝咖哩",
+                    "time": "週一-週四上午11:30-下午2:00,下午4:00-下午7:30週五上午11:30-下午2:00",
+                    "add": "台北市文山區指南路二段119巷3號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "日韓",
+                    "food": "咖哩",
+                    "price": "10",
+                    "schedule_times": "上午11:30-下午2:00"
+                },
+                {
+                    "undefined": "2",
+                    "imageSrc": "images/store2.jpg",
+                    "name": "21PLUS、21風味館",
+                    "time": "週一-週日上午11:00-下午8:30",
+                    "add": "新北市新店區中興路三段1號1樓, 231 New Taipei City",
+                    "rating": "4.7",
+                    "class": "美式料理",
+                    "food": "炸雞",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午8:30"
+                },
+                {
+                    "undefined": "3",
+                    "imageSrc": "images/store3.jpg",
+                    "name": "26巷塩酥雞",
+                    "time": "週一-週日上午12:00-上午2:00,下午3:00-下午11:59",
+                    "add": "台北市文山區忠順街一段26巷12弄4號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午3:00-下午11:59"
+                },
+                {
+                    "undefined": "4",
+                    "imageSrc": "images/store4.jpg",
+                    "name": "3Q脆皮雞排 (文山保儀店)",
+                    "time": "週一-週日下午4:00-下午10:15",
+                    "add": "台北市文山區保儀路30號之1, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "下午4:00-下午10:15"
+                },
+                {
+                    "undefined": "5",
+                    "imageSrc": "images/store5.jpg",
+                    "name": "85度C (文山興隆店)",
+                    "time": "週一-週日上午7:00-下午10:15",
+                    "add": "台北市文山區興隆路4段68-6號, 116 Taipei City",
+                    "rating": "4.8",
+                    "class": "甜點",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "上午7:00-下午10:15"
+                },
+                // {
+                //     "undefined": "7",
+                //     "imageSrc": "images/store7.jpg",
+                //     "name": "Go Caf’e 早午餐",
+                //     "time": "週二-週日上午8:00-下午2:00",
+                //     "add": "台北市文山區新光路34-1號, 116 Taipei City",
+                //     "rating": "4.5",
+                //     "class": "美式料理",
+                //     "food": "早餐",
+                //     "price": "10",
+                //     "schedule_times": "上午8:00-下午2:00"
+                // },
+                {
+                    "undefined": "8",
+                    "imageSrc": "images/store8.jpg",
+                    "name": "G優生美式炸雞",
+                    "time": "週一-週日下午3:00-下午11:59",
+                    "add": "台北市文山區指南路二段34-1號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "美式料理",
+                    "food": "炸雞",
+                    "price": "10",
+                    "schedule_times": "下午3:00-下午11:59"
+                },
+                {
+                    "undefined": "9",
+                    "imageSrc": "images/store9.jpg",
+                    "name": "Mr.Smile 好吃雞排 (台北木柵店)",
+                    "time": "週一-週六下午5:00-下午11:59",
+                    "add": "台北市文山區木柵路一段172-2號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "下午5:00-下午11:59"
+                },
+                {
+                    "undefined": "10",
+                    "imageSrc": "images/store10.jpg",
+                    "name": "Papa pig 早午餐",
+                    "time": "週一-週日上午6:30-下午2:00",
+                    "add": "台北市文山區和平東路四段328號, 116 Taipei City",
+                    "rating": "4.8",
+                    "class": "美式料理",
+                    "food": "早餐",
+                    "price": "100",
+                    "schedule_times": "上午6:30-下午2:00"
+                },
+                // {
+                //     "undefined": "11",
+                //     "imageSrc": "images/store11.jpg",
+                //     "name": "Pizza Hut必勝客 (木柵外送店)",
+                //     "time": "週一-週日上午11:00-下午10:30",
+                //     "add": "台北市文山區木柵路2段137號1樓 食品業者登錄字號：A-197161500-00162-6, 116 Taipei City",
+                //     "rating": "4.7",
+                //     "class": "美式料理",
+                //     "food": "非店內價",
+                //     "price": "100",
+                //     "schedule_times": "上午11:00-下午10:30"
+                // },
+                {
+                    "undefined": "12",
+                    "imageSrc": "images/store12.jpg",
+                    "name": "SUBWAY (政大店)",
+                    "time": "週一-週日上午9:00-下午9:30",
+                    "add": "台北市文山區萬壽路27號一樓, 116 Taipei City",
+                    "rating": "4.8",
+                    "class": "素食",
+                    "food": "店內價",
+                    "price": "100",
+                    "schedule_times": "上午9:00-下午9:30"
+                },
+                {
+                    "undefined": "13",
+                    "imageSrc": "images/store13.jpg",
+                    "name": "TANK 刈包/花生捲冰淇淋/茶飲",
+                    "time": "週一-週五下午12:00-下午7:00,下午12:00-下午7:00",
+                    "add": "台北市文山區指南路二段42號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "飲料",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午12:00-下午7:00"
+                },
+                {
+                    "undefined": "14",
+                    "imageSrc": "images/store14.jpg",
+                    "name": "八加九冰果室",
+                    "time": "週一-週日上午9:30-下午9:30,上午9:30-下午9:30",
+                    "add": "台北市文山區新光路一段19號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "甜點",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "上午9:30-下午9:30"
+                },
+                {
+                    "undefined": "15",
+                    "imageSrc": "images/store15.jpg",
+                    "name": "三顧茅廬 (台北木柵木新店)",
+                    "time": "週一-週日下午4:30-下午11:59",
+                    "add": "台北市文山區木新路三段120號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "中港",
+                    "food": "滷味",
+                    "price": "100",
+                    "schedule_times": "下午4:30-下午11:59"
+                },
+                {
+                    "undefined": "16",
+                    "imageSrc": "images/store16.jpg",
+                    "name": "土熊冰室",
+                    "time": "週一-週日下午1:00-下午11:00",
+                    "add": "台北市文山區指南路二段119巷3號, 116 Taipei City",
+                    "rating": "3.9",
+                    "class": "中港",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午1:00-下午11:00"
+                },
+                {
+                    "undefined": "17",
+                    "imageSrc": "images/store17.jpg",
+                    "name": "大尾雞排",
+                    "time": "週一-週日上午12:00-上午2:00,下午4:30-下午11:59",
+                    "add": "台北市文山區木柵路一段217號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "炸雞",
+                    "price": "100",
+                    "schedule_times": "下午4:30-下午11:59"
+                },
+                {
+                    "undefined": "18",
+                    "imageSrc": "images/store18.jpg",
+                    "name": "小農超市X小農食堂",
+                    "time": "週一-週五下午1:00-下午9:00",
+                    "add": "台北市文山區指南路二段215號, 116 Taipei City",
+                    "rating": "3",
+                    "class": "中港",
+                    "food": "料多小火鍋",
+                    "price": "100",
+                    "schedule_times": "下午1:00-下午9:00"
+                },
+                {
+                    "undefined": "19",
+                    "imageSrc": "images/store19.jpg",
+                    "name": "小確幸",
+                    "time": "週一-週日上午11:00-下午8:30",
+                    "add": "台北市文山區指南路二段45巷1號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "日韓",
+                    "food": "便當",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午8:30"
+                },
+                {
+                    "undefined": "20",
+                    "imageSrc": "images/store20.jpg",
+                    "name": "木柵米粉湯",
+                    "time": "週一-週日上午12:00-上午2:15,上午10:30-下午11:59,上午12:00-上午2:15,上午10:30-下午11:59",
+                    "add": "台北市文山區木新路2段248號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "中港",
+                    "food": "麵類",
+                    "price": "10",
+                    "schedule_times": "上午10:30-下午11:59"
+                },
+                {
+                    "undefined": "21",
+                    "imageSrc": "images/store21.jpg",
+                    "name": "永和豆漿大王",
+                    "time": "週一下午7:00-下午11:59,下午7:00-下午11:59週二-週六上午12:00-上午12:30,下午7:00-下午11:59,上午12:00-上午12:30,下午7:00-下午11:59週日上午12:00-上午12:30,上午12:00-上午12:30",
+                    "add": "台北市文山區木新路二段293號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午7:00-下午11:59"
+                },
+                {
+                    "undefined": "22",
+                    "imageSrc": "images/store22.jpg",
+                    "name": "吉野家 Yoshinoya (文山政大店)",
+                    "time": "週一-週日上午10:30-下午9:30",
+                    "add": "台北市文山區指南路二段103號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "日韓",
+                    "food": "便當",
+                    "price": "100",
+                    "schedule_times": "上午10:30-下午9:30"
+                },
+                {
+                    "undefined": "23",
+                    "imageSrc": "images/store23.jpg",
+                    "name": "地表最強雞排",
+                    "time": "週一-週五下午4:00-下午11:59週六,週日上午12:00-上午1:00,下午4:00-下午11:59",
+                    "add": "台北市文山區木柵路四段60號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "炸雞",
+                    "price": "10",
+                    "schedule_times": "下午4:00-下午11:59"
+                },
+                {
+                    "undefined": "24",
+                    "imageSrc": "images/store24.jpg",
+                    "name": "米塔義式廚房 (台北政大店)",
+                    "time": "週一-週日上午11:00-下午9:00",
+                    "add": "台北市文山區萬壽路二號2樓, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "小吃",
+                    "food": "非店內價",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午9:00"
+                },
+                {
+                    "undefined": "25",
+                    "imageSrc": "images/store25.jpg",
+                    "name": "西漢帝王食補薑母鴨羊肉爐",
+                    "time": "週一-週日下午4:45-下午11:59",
+                    "add": "台北市文山區木新路二段295號, 116 Taipei City",
+                    "rating": "4.1",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "下午4:45-下午11:59"
+                },
+                {
+                    "undefined": "26",
+                    "imageSrc": "images/store26.jpg",
+                    "name": "秀明美而美",
+                    "time": "週一-週五上午6:30-下午1:00週六,週日上午7:30-下午1:00",
+                    "add": "台北市文山區秀明路二段112巷14號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "上午7:30-下午1:00"
+                },
+                {
+                    "undefined": "27",
+                    "imageSrc": "images/store27.jpg",
+                    "name": "京橋日式料理",
+                    "time": "週二-週日上午11:30-下午2:00,下午5:30-下午9:00",
+                    "add": "台北市文山區木柵路三段130號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "日韓",
+                    "food": "\n刺身類\n",
+                    "price": "100",
+                    "schedule_times": "上午11:30-下午2:00"
+                },
+                {
+                    "undefined": "28",
+                    "imageSrc": "images/store28.jpg",
+                    "name": "叁羮拌麵",
+                    "time": "週一-週五上午10:00-下午2:00,下午5:00-下午9:00週六,週日上午10:00-下午7:00",
+                    "add": "台北市文山區木柵路三段102巷13號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "小吃",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "上午10:00-下午7:00"
+                },
+                {
+                    "undefined": "29",
+                    "imageSrc": "images/store29.jpg",
+                    "name": "咖啡超人 (保儀店)",
+                    "time": "週一-週日上午10:00-下午8:00",
+                    "add": "台北市文山區保儀路95號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "飲料",
+                    "food": "\n拿手研磨咖啡\n",
+                    "price": "10",
+                    "schedule_times": "上午10:00-下午8:00"
+                },
+                // {
+                //     "undefined": "30",
+                //     "imageSrc": "images/store30.jpg",
+                //     "name": "明記大塊雞排 (台北木柵店)",
+                //     "time": "週一-週日上午12:00-上午2:00,下午4:30-下午11:59",
+                //     "add": "台北市文山區木新路三段319號, 116 Taipei City",
+                //     "rating": "4.5",
+                //     "class": "中港",
+                //     "food": "非店內價",
+                //     "price": "10",
+                //     "schedule_times": "下午4:30-下午11:59"
+                // },
+                // {
+                //     "undefined": "31",
+                //     "imageSrc": "images/store31.jpg",
+                //     "name": "欣帝堡",
+                //     "time": "週一-週五上午6:30-下午5:00週六,週日上午6:30-下午1:30",
+                //     "add": "台北市文山區保儀路171號, 116 Taipei City",
+                //     "rating": "4.6",
+                //     "class": "中港",
+                //     "food": "早餐",
+                //     "price": "10",
+                //     "schedule_times": "上午6:30-下午1:30"
+                // },
+                // {
+                //     "undefined": "32",
+                //     "imageSrc": "images/store32.jpg",
+                //     "name": "肯德基 (文山木柵店)",
+                //     "time": "週一-週日上午10:30-下午10:30",
+                //     "add": "台北市文山區木柵路三段82號 食品業者登錄字號：A-197161500-00404-5, 116 Taipei City",
+                //     "rating": "4.5",
+                //     "class": "美式料理",
+                //     "food": "炸雞",
+                //     "price": "100",
+                //     "schedule_times": "上午10:30-下午10:30"
+                // },
+                {
+                    "undefined": "33",
+                    "imageSrc": "images/store33.jpg",
+                    "name": "金盃美而美 (景文高中店)",
+                    "time": "週一-週日上午7:00-下午2:00",
+                    "add": "台北市文山區保儀路113號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "中港",
+                    "food": "早餐",
+                    "price": "10",
+                    "schedule_times": "上午7:00-下午2:00"
+                },
+                {
+                    "undefined": "34",
+                    "imageSrc": "images/store34.jpg",
+                    "name": "保儀涼麵",
+                    "time": "週一-週日上午7:00-下午2:00",
+                    "add": "台北市文山區保儀路97號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "上午7:00-下午2:00"
+                },
+                {
+                    "undefined": "35",
+                    "imageSrc": "images/store35.jpg",
+                    "name": "咬一口幸福手作廚房",
+                    "time": "週一-週日上午7:30-下午5:00",
+                    "add": "台北市文山區興隆路四段109巷4號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "中港",
+                    "food": "厚片吐司區",
+                    "price": "10",
+                    "schedule_times": "上午7:30-下午5:00"
+                },
+                {
+                    "undefined": "36",
+                    "imageSrc": "images/store36.jpg",
+                    "name": "柔柔の炸語",
+                    "time": "週一,週二,週五-週日上午12:00-上午2:00,下午6:00-下午11:59週三上午12:00-上午2:00週四下午6:00-下午11:59",
+                    "add": "台北市文山區木新路二段259號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午6:00-下午11:59"
+                },
+                {
+                    "undefined": "37",
+                    "imageSrc": "images/store37.jpg",
+                    "name": "美麗的麵線",
+                    "time": "週二-週日上午6:30-下午6:00",
+                    "add": "台北市文山區恆光街1號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "中港",
+                    "food": "麵類",
+                    "price": "10",
+                    "schedule_times": "上午6:30-下午6:00"
+                },
+                {
+                    "undefined": "38",
+                    "imageSrc": "images/store38.jpg",
+                    "name": "原丼力",
+                    "time": "週一-週六上午11:00-下午2:00,下午4:30-下午8:00",
+                    "add": "台北市文山區指南路二段119巷5號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午2:00"
+                },
+                {
+                    "undefined": "39",
+                    "imageSrc": "images/store39.jpg",
+                    "name": "峰味燒臘店",
+                    "time": "週二-週日上午10:30-下午2:00,下午4:30-下午7:00",
+                    "add": "台北市文山區永安街22巷35號1樓, 116 Taipei City",
+                    "rating": "3.8",
+                    "class": "中港",
+                    "food": "\n峰味套餐\n",
+                    "price": "100",
+                    "schedule_times": "上午10:30-下午2:00"
+                },
+                {
+                    "undefined": "40",
+                    "imageSrc": "images/store40.jpg",
+                    "name": "茶米餐坊",
+                    "time": "週一-週日上午6:45-下午2:30",
+                    "add": "台北市文山區忠順街二段7號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "美式料理",
+                    "food": "\n經典Brunch\n",
+                    "price": "100",
+                    "schedule_times": "上午6:45-下午2:30"
+                },
+                {
+                    "undefined": "41",
+                    "imageSrc": "images/store41.jpg",
+                    "name": "鬼匠拉麵 (台北政大店)",
+                    "time": "週一-週日上午11:00-下午2:00,下午5:00-下午8:30",
+                    "add": "台北市文山區指南路二段28號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "日韓",
+                    "food": "麵類",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午2:00"
+                },
+                {
+                    "undefined": "42",
+                    "imageSrc": "images/store42.jpg",
+                    "name": "清心福全 (台北政大店)",
+                    "time": "週一-週日上午10:00-下午10:30",
+                    "add": "台北市文山區指南路二段61號, 116 Taipei City",
+                    "rating": "4.8",
+                    "class": "中港",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "上午10:00-下午10:30"
+                },
+                {
+                    "undefined": "43",
+                    "imageSrc": "images/store43.jpg",
+                    "name": "喰研社",
+                    "time": "週一-週五,週日上午11:30-下午2:00,下午5:00-下午8:00",
+                    "add": "台北市文山區指南路二段2號2樓, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "100",
+                    "schedule_times": "上午11:30-下午2:00"
+                },
+                {
+                    "undefined": "44",
+                    "imageSrc": "images/store44.jpg",
+                    "name": "渣男 Taiwan Bistro (台北木柵店)",
+                    "time": "週一-週日下午5:30-下午11:59",
+                    "add": "台北市文山區萬芳路9-1號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "小吃",
+                    "food": "非店內價",
+                    "price": "100",
+                    "schedule_times": "下午5:30-下午11:59"
+                },
+                {
+                    "undefined": "45",
+                    "imageSrc": "images/store45.jpg",
+                    "name": "湯魂家",
+                    "time": "週一-週五上午11:15-下午1:30,下午5:00-下午8:30,上午11:15-下午1:30,下午5:00-下午8:30週六,週日上午11:15-下午2:30,下午5:30-下午8:30",
+                    "add": "台北市文山區興隆路三段231號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "日韓",
+                    "food": "麵類",
+                    "price": "100",
+                    "schedule_times": "上午11:15-下午2:30"
+                },
+                {
+                    "undefined": "46",
+                    "imageSrc": "images/store46.jpg",
+                    "name": "翔二屋",
+                    "time": "週一-週日上午10:00-下午9:30",
+                    "add": "台北市文山區興隆路三段136號2樓 (食安登錄字號:A-172985485-00000-6), 106 Taipei City",
+                    "rating": "0",
+                    "class": "日韓",
+                    "food": "\n精緻餐點\n",
+                    "price": "100",
+                    "schedule_times": "上午10:00-下午9:30"
+                },
+                {
+                    "undefined": "47",
+                    "imageSrc": "images/store47.jpg",
+                    "name": "菁英精緻餐盒 (台北木柵店)",
+                    "time": "週一-週六上午11:00-下午1:45,下午5:00-下午7:00",
+                    "add": "台北市文山區指南路二段49號, 116 Taipei City",
+                    "rating": "4.2",
+                    "class": "中港",
+                    "food": "便當",
+                    "price": "100",
+                    "schedule_times": "上午11:00-下午1:45"
+                },
+                {
+                    "undefined": "48",
+                    "imageSrc": "images/store48.jpg",
+                    "name": "街角小吃",
+                    "time": "週一上午7:30-下午6:00週二上午8:00-下午7:00週三上午8:00-下午5:00週五上午7:30-下午7:00,上午8:00-下午7:00週六,週日上午8:30-下午6:00",
+                    "add": "台北市文山區保儀路15號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "麵類",
+                    "price": "10",
+                    "schedule_times": "上午8:30-下午6:00"
+                },
+                {
+                    "undefined": "49",
+                    "imageSrc": "images/store49.jpg",
+                    "name": "開源社香雞排 (文山木新店)",
+                    "time": "週一-週日上午12:00-上午1:00,下午3:00-下午11:59",
+                    "add": "台北市文山區木新路三段269號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "下午3:00-下午11:59"
+                },
+                {
+                    "undefined": "50",
+                    "imageSrc": "images/store50.jpg",
+                    "name": "順園麻油雞.涼麵",
+                    "time": "週一-週六上午11:00-下午9:00",
+                    "add": "台北市文山區木柵路三段1號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "上午11:00-下午9:00"
+                },
+                {
+                    "undefined": "51",
+                    "imageSrc": "images/store51.jpg",
+                    "name": "極品鹽水雞 (新北寶僑店)",
+                    "time": "週一,週二,週五-週日上午12:00-上午1:00,下午5:00-下午11:59週三上午12:00-上午1:00週四下午5:00-下午11:59",
+                    "add": "新北市新店區寶橋路58號, 231 New Taipei City",
+                    "rating": "4.2",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "下午5:00-下午11:59"
+                },
+                {
+                    "undefined": "52",
+                    "imageSrc": "images/store52.jpg",
+                    "name": "禎記滷味",
+                    "time": "週一-週五上午11:00-下午11:59週六上午11:30-下午11:59週日上午11:30-下午11:00",
+                    "add": "台北市文山區興隆路三段36巷15弄12號, 116 Taipei City",
+                    "rating": "4.3",
+                    "class": "中港",
+                    "food": "滷味",
+                    "price": "10",
+                    "schedule_times": "上午11:00-下午11:59"
+                },
+                {
+                    "undefined": "53",
+                    "imageSrc": "images/store53.jpg",
+                    "name": "聚點G-Dot",
+                    "time": "週一-週六下午4:00-下午11:59",
+                    "add": "台北市文山區興隆路三段54-2號, 116 Taipei City",
+                    "rating": "4.1",
+                    "class": "中港",
+                    "food": "非店內價",
+                    "price": "10",
+                    "schedule_times": "下午4:00-下午11:59"
+                },
+                {
+                    "undefined": "54",
+                    "imageSrc": "images/store54.jpg",
+                    "name": "德合香早餐店",
+                    "time": "週一-週日上午7:00-下午12:30",
+                    "add": "台北市文山區指南路二段58號, 116 Taipei City",
+                    "rating": "4.7",
+                    "class": "中港",
+                    "food": "早餐",
+                    "price": "10",
+                    "schedule_times": "上午7:00-下午12:30"
+                },
+                {
+                    "undefined": "55",
+                    "imageSrc": "images/store55.jpg",
+                    "name": "潮味決 (台北木柵店)",
+                    "time": "週一-週日下午4:00-下午11:00",
+                    "add": "台北市文山區木柵路三段121號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "套餐區",
+                    "price": "100",
+                    "schedule_times": "下午4:00-下午11:00"
+                },
+                {
+                    "undefined": "56",
+                    "imageSrc": "images/store56.jpg",
+                    "name": "臻品茶茶飲專賣店",
+                    "time": "週一-週四上午9:00-下午6:00週五上午9:00-下午3:00",
+                    "add": "台北市文山區保儀路113號2樓, 116 Taipei City",
+                    "rating": "4",
+                    "class": "中港",
+                    "food": "店內價",
+                    "price": "10",
+                    "schedule_times": "上午9:00-下午6:00"
+                },
+                {
+                    "undefined": "57",
+                    "imageSrc": "images/store57.jpg",
+                    "name": "龍角手作茶 (台北政大店)",
+                    "time": "週一-週日下午3:00-下午8:00",
+                    "add": "台北市文山區指南路二段33號, 116 Taipei City",
+                    "rating": "4.8",
+                    "class": "飲料",
+                    "food": "原萃意境",
+                    "price": "10",
+                    "schedule_times": "下午3:00-下午8:00"
+                },
+                {
+                    "undefined": "58",
+                    "imageSrc": "images/store58.jpg",
+                    "name": "優秀早晨",
+                    "time": "週二-週日上午9:00-下午2:00",
+                    "add": "台北市文山區興隆路四段110號, 116 Taipei City",
+                    "rating": "4.6",
+                    "class": "中港",
+                    "food": "早餐",
+                    "price": "100",
+                    "schedule_times": "上午9:00-下午2:00"
+                },
+                {
+                    "undefined": "59",
+                    "imageSrc": "images/store59.jpg",
+                    "name": "鴻記重慶酸辣粉",
+                    "time": "週一-週日上午11:00-下午8:45",
+                    "add": "台北市文山區指南路二段55號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "中港",
+                    "food": "綜合類",
+                    "price": "10",
+                    "schedule_times": "上午11:00-下午8:45"
+                },
+                {
+                    "undefined": "60",
+                    "imageSrc": "images/store60.jpg",
+                    "name": "禮采芙 (文山政大店)",
+                    "time": "週一-週日上午10:00-下午9:00",
+                    "add": "台北市文山區指南路二段91號, 116 Taipei City",
+                    "rating": "4.5",
+                    "class": "飲料",
+                    "food": "如一系",
+                    "price": "10",
+                    "schedule_times": "上午10:00-下午9:00"
+                },
+                {
+                    "undefined": "61",
+                    "imageSrc": "images/store61.jpg",
+                    "name": "醬烤 (台北木柵店)",
+                    "time": "週一-週三,週五-週日下午3:00-下午11:59",
+                    "add": "台北市文山區木柵路二段209號, 116 Taipei City",
+                    "rating": "4.4",
+                    "class": "小吃",
+                    "food": "店內價",
+                    "price": "100",
+                    "schedule_times": "下午3:00-下午11:59"
+                }
+            ];
+        }
+        
+        let ratingFilter = function(productList) {
+            // get selection
+            let minStar = document.getElementById("ratingSelect").value;
+            minStar = parseInt(minStar);
+
+            // filter
+            let newList = [];
+            for (i = 0; i < productList.length; i++) {
+                if (productList[i].rating >= minStar)
+                    newList.push(productList[i]);
+            }
+            return newList;
+        }
+
+        function getValueByKeyInUrlQuery(key) {
+            // get query string
+            let params = (new URL(document.location)).searchParams;
+            let value = params.get(key);
+
+            return value;
+        }
+
+        function containKeyword(str, pattern) {
+            if (str.indexOf(pattern) == -1)
+                return false;
+
+            return true;
+        }
+
+        let keywordFilter = function(productList) {
+            // get keyword
+            let keyword = getValueByKeyInUrlQuery('keyword')
+            let keyword_input = document.getElementById("keyword-input")
+            keyword_input.value = keyword
+
+            if (!keyword)
+                return productList
+
+            // select properties
+            let propertyList = [
+                'name',
+                'class',
+                'food'
+            ];
+
+            // filter
+            let newList = [];
+            for (let i = 0; i < productList.length; i++) {
+                for (let propertyIndex = 0; propertyIndex < propertyList.length; propertyIndex++) {
+                    let property = propertyList[propertyIndex];
+                    let value = productList[i][property];
+                    if (containKeyword(value, keyword)) {
+                        newList.push(productList[i]);
+                        break;
+                    }
+                }
+            }
+            return newList;
+        }
+
+        let priceFilter = function(productList) {
+            // define level
+            levelList = [
+                [0, 1000],
+                [0, 10],
+                [11, 100],
+                [101, 1000]
+            ]
+
+            // get price range
+            let selectedLevel = document.getElementById("priceSelect").value;
+            selectedLevel = parseInt(selectedLevel);
+            priceLevel = levelList[selectedLevel];
+            priceMin = priceLevel[0];
+            priceMax = priceLevel[1];
+            
+            
+            // filter
+            let newList = [];            
+            for (i = 0; i < productList.length; i++) {
+                let price = productList[i].price;
+                if (price >= priceMin && price <= priceMax)
+                    newList.push(productList[i]);
+            }
+            return newList;
+        }
+
+        function update() {
+            // build filter list
+            let filterList = [];
+            filterList.push(keywordFilter);
+            filterList.push(ratingFilter);
+            filterList.push(priceFilter);
+            
+
+            // apply filter list
+            productList = fullList();
+            filterList.forEach(filter => productList = filter(productList))
+
+            // update page dom
+            let p = document.getElementById("filter");
+            p.innerHTML = "";
+            for (let i = 0; i < productList.length; i++) {
+                let obj = productList[i];
+                p.innerHTML += (`<div class="col-md-3 col-sm-4 col-xs-12"> 
+                    <div class="tv-dishes-img">
+                        <img src=${obj.imageSrc} class="width-100 img-responsive">
+                    </div>
+                    <div class="tv-dishes-info">
+                        <h5>${obj.name}</h5>
+                        <span>${obj.rating}顆星</span>
+                        <p>${obj.schedule_times}</p>
+                    </div>
+                </div>`);
+            }
+        }
+
+        function addKeywordInputEventHandler() {
+            let button = document.getElementById("keyword-input");
+
+            button.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                let keyword = button.value
+                alert(keyword);
+
+                // TODO
+                let url = 'searchingPage.html';
+                let link = document.getElementById('search-link');
+
+                if (!keyword)
+                    link.href = url;
+                else {
+                    link.href = `${url}?keyword=${keyword}`;
+                }
+                link.click();
+            }
+            });
+        }
+
+        addKeywordInputEventHandler()
+        update();
+          
+    </script>
+   <!--Filter Script Ends Here...-->
+
+
+    <!--Scrolling Script-->
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+                if (this.hash !== "") {
+
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+    <!--End Scrolling Script-->
+    <script src="js/styleswitcher.js"></script>
+</body>
+
+</html>
