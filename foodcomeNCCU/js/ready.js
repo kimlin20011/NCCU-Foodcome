@@ -32,7 +32,7 @@ $(document).ready(function () {
         $("#out").show()
         $("#out").click(function () {
             console.log('out')
-            window.location = './landingPage.html';
+            window.location = './index.html';
 
 
             firebase.auth().signOut().then(function () {
@@ -46,7 +46,7 @@ $(document).ready(function () {
         $("#out11").show()
         $("#out11").click(function () {
             console.log('out')
-            window.location = '../landingPage.html';
+            window.location = '../index.html';
 
 
             firebase.auth().signOut().then(function () {
@@ -66,12 +66,12 @@ $(document).ready(function () {
 
         $("#logo").click(function () {
             // alert('isme')
-            window.location = './landingPage.html?' + name;
+            window.location = './index.html?' + name;
 
         })
         $("#logo1").click(function () {
             // alert('isme')
-            window.location = '../landingPage.html?' + name;
+            window.location = '../index.html?' + name;
 
         })
         $("#order").click(function () {
@@ -89,12 +89,12 @@ $(document).ready(function () {
     } else {
         $("#logo").click(function () {
             // alert('isme')
-            window.location = './landingPage.html';
+            window.location = './index.html';
 
         })
         $("#logo1").click(function () {
             // alert('isme')
-            window.location = '../landingPage.html';
+            window.location = '../index.html';
 
         })
         $('#24').click(function () {
@@ -102,12 +102,12 @@ $(document).ready(function () {
         })
         $("#order").click(function () {
             // alert('isme')
-            window.location = './order.html?' 
+            window.location = './order.html?'
 
         })
         $("#order1").click(function () {
             // alert('isme')
-            window.location = '../order.html?' 
+            window.location = '../order.html?'
 
         })
 
