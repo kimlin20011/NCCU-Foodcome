@@ -48,7 +48,7 @@ License URI: http://www.themevault.net/license/-->
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="navbar-header text-center">
                             <div class="frame">
-                                <a href="./landingPage.html"><img src="images/nccu2.png" width="50%" style="float: left ;
+                                <a href="./index.html"><img src="images/nccu2.png" width="50%" style="float: left ;
                                     max-height: 100%;  
                                     max-width: 100%; 
                                     width: auto;
@@ -59,7 +59,7 @@ License URI: http://www.themevault.net/license/-->
                                     left: 0;  
                                     right: 0;  
                                     margin: auto;"></a>
-                                <a href="./landingPage.html" class="navbar-brand tv-cafe-logo" style="
+                                <a href="./index.html" class="navbar-brand tv-cafe-logo" style="
                                     
                                     padding-left: 20px;
                                     padding-right: 59px;
@@ -85,12 +85,15 @@ License URI: http://www.themevault.net/license/-->
                                 <li class="tv-menu">
                                     <a id="search-link" href="#" class="tv-menu">
                                         <form class="form-search form-inline">
-                                            <input id="keyword-input" type="text" class="search-query" placeholder="Search..." style="width: 127px;" />
+                                            <input id="keyword-input" type="text" class="search-query"
+                                                placeholder="Search..." style="width: 127px;" />
                                         </form>
                                     </a>
                                 </li>
-                                <li class=""><a id='book' href="#newsletter" class="tv-menu" data-toggle="dropdown">訂閱電子報</a></li>
-                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a></li>
+                                <li class=""><a id='book' href="#newsletter" class="tv-menu"
+                                        data-toggle="dropdown">訂閱電子報</a></li>
+                                <li class=''><a id='singin' href="./signIn.html" class="tv-menu" target="_self">註冊</a>
+                                </li>
                                 <li class=''><a id='sign' href="./login.html" class="tv-menu" target="_self">登入</a></li>
                                 <li class=""><a id='name' href="#" class="tv-menu" style="display:none">名字</a></li>
                                 <li id='out1' class=''><a id='out' class="tv-menu" style="display:none">登出</a></li>
@@ -109,7 +112,7 @@ License URI: http://www.themevault.net/license/-->
     <section id="Popular" class="tv-section-padding">
         <div class="container">
             <div class="tv-section-title text-center">
-                    <h2>Searching Results</h2>
+                <h2>Searching Results</h2>
             </div>
             <div class="col-sm-12">
                 <select id="ratingSelect" onchange="update()">
@@ -128,13 +131,13 @@ License URI: http://www.themevault.net/license/-->
                 </select>
             </div>
             <div class="container" style="display: flex">
-            <div id="filter" class="row"></div>
+                <div id="filter" class="row"></div>
             </div>
         </div>
     </section>
     <!--SearchingResult Section Ends Here...-->
 
- 
+
     <!--NewsLetter Section-->
     <section id="newsletter" class="tv-section-padding">
         <div class="newsletter-bg-img"
@@ -266,11 +269,11 @@ License URI: http://www.themevault.net/license/-->
 
     <a id="back-to-top" style="display: none;"><i class="tv-bounce fa fa-angle-double-up"></i></a>
 
-   
+
     <!--Filter-->
     <script>
         function fullList() {
-            return  [
+            return [
                 {
                     "undefined": "1",
                     "imageSrc": "images/store1.jpg",
@@ -993,8 +996,8 @@ License URI: http://www.themevault.net/license/-->
                 }
             ];
         }
-        
-        let ratingFilter = function(productList) {
+
+        let ratingFilter = function (productList) {
             // get selection
             let minStar = document.getElementById("ratingSelect").value;
             minStar = parseInt(minStar);
@@ -1023,7 +1026,7 @@ License URI: http://www.themevault.net/license/-->
             return true;
         }
 
-        let keywordFilter = function(productList) {
+        let keywordFilter = function (productList) {
             // get keyword
             let keyword = getValueByKeyInUrlQuery('keyword')
             let keyword_input = document.getElementById("keyword-input")
@@ -1054,7 +1057,7 @@ License URI: http://www.themevault.net/license/-->
             return newList;
         }
 
-        let priceFilter = function(productList) {
+        let priceFilter = function (productList) {
             // define level
             levelList = [
                 [0, 1000],
@@ -1069,10 +1072,10 @@ License URI: http://www.themevault.net/license/-->
             priceLevel = levelList[selectedLevel];
             priceMin = priceLevel[0];
             priceMax = priceLevel[1];
-            
-            
+
+
             // filter
-            let newList = [];            
+            let newList = [];
             for (i = 0; i < productList.length; i++) {
                 let price = productList[i].price;
                 if (price >= priceMin && price <= priceMax)
@@ -1087,7 +1090,7 @@ License URI: http://www.themevault.net/license/-->
             filterList.push(keywordFilter);
             filterList.push(ratingFilter);
             filterList.push(priceFilter);
-            
+
 
             // apply filter list
             productList = fullList();
@@ -1114,31 +1117,31 @@ License URI: http://www.themevault.net/license/-->
         function addKeywordInputEventHandler() {
             let button = document.getElementById("keyword-input");
 
-            button.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                let keyword = button.value
-                alert(keyword);
+            button.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    let keyword = button.value
+                    alert(keyword);
 
-                // TODO
-                let url = 'searchingPage.html';
-                let link = document.getElementById('search-link');
+                    // TODO
+                    let url = 'searchingPage.html';
+                    let link = document.getElementById('search-link');
 
-                if (!keyword)
-                    link.href = url;
-                else {
-                    link.href = `${url}?keyword=${keyword}`;
+                    if (!keyword)
+                        link.href = url;
+                    else {
+                        link.href = `${url}?keyword=${keyword}`;
+                    }
+                    link.click();
                 }
-                link.click();
-            }
             });
         }
 
         addKeywordInputEventHandler()
         update();
-          
+
     </script>
-   <!--Filter Script Ends Here...-->
+    <!--Filter Script Ends Here...-->
 
 
     <!--Scrolling Script-->
